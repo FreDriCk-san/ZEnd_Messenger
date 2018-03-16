@@ -1,0 +1,11 @@
+D:\Проект по Лёхе\Coding\ZEnd_MVC\zeMVC\zeMVC\bin\Debug\netcoreapp2.0\zeMVC.deps.json
+D:\Проект по Лёхе\Coding\ZEnd_MVC\zeMVC\zeMVC\bin\Debug\netcoreapp2.0\zeMVC.runtimeconfig.json
+D:\Проект по Лёхе\Coding\ZEnd_MVC\zeMVC\zeMVC\bin\Debug\netcoreapp2.0\zeMVC.runtimeconfig.dev.json
+D:\Проект по Лёхе\Coding\ZEnd_MVC\zeMVC\zeMVC\bin\Debug\netcoreapp2.0\zeMVC.dll
+D:\Проект по Лёхе\Coding\ZEnd_MVC\zeMVC\zeMVC\obj\Debug\netcoreapp2.0\zeMVC.csprojResolveAssemblyReference.cache
+D:\Проект по Лёхе\Coding\ZEnd_MVC\zeMVC\zeMVC\obj\Debug\netcoreapp2.0\zeMVC.csproj.CoreCompileInputs.cache
+D:\Проект по Лёхе\Coding\ZEnd_MVC\zeMVC\zeMVC\obj\Debug\netcoreapp2.0\zeMVC.AssemblyInfoInputs.cache
+D:\Проект по Лёхе\Coding\ZEnd_MVC\zeMVC\zeMVC\obj\Debug\netcoreapp2.0\zeMVC.AssemblyInfo.cs
+D:\Проект по Лёхе\Coding\ZEnd_MVC\zeMVC\zeMVC\bin\Debug\netcoreapp2.0\zeMVC.pdb
+D:\Проект по Лёхе\Coding\ZEnd_MVC\zeMVC\zeMVC\obj\Debug\netcoreapp2.0\zeMVC.dll
+D:\Проект по Лёхе\Coding\ZEnd_MVC\zeMVC\zeMVC\obj\Debug\netcoreapp2.0\zeMVC.pdb
