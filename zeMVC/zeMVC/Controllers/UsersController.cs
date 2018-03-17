@@ -53,8 +53,6 @@ namespace zeMVC.Controllers
         }
 
         // POST: Users/Create
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("Name,Mail,Password,Login")] User user)
@@ -63,15 +61,23 @@ namespace zeMVC.Controllers
             {
                 if (ModelState.IsValid)
                 {
-                    _context.Add(user);
-                    await _context.SaveChangesAsync();
-                    return RedirectToAction(nameof(Index));
+                    if (_context.Users.Any(p => p.Login == user.Login))
+                    {
+                        ModelState.AddModelError("", "Login already exists.");
+                    }
+                    else
+                    {
+                        _context.Add(user);
+                        await _context.SaveChangesAsync();
+                        return RedirectToAction(nameof(Index));
+                    }
+
                 }
             }
             catch (DbUpdateException exception)
             {
                 ModelState.AddModelError("", "Unable to save changes. " +
-            "Try again. " +
+                    "Try again. " +
                 "ERROR: " + exception);
             }
             return View(user);
@@ -94,42 +100,38 @@ namespace zeMVC.Controllers
         }
 
         // POST: Users/Edit/5
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
+        [HttpPost, ActionName("Edit")]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("UserId,Login,Password,Name,Mail,Avatar,EnrollmentDate")] User user)
+        public async Task<IActionResult> EditPost(int? id)
         {
-            if (id != user.UserId)
+            if (id == null)
             {
                 return NotFound();
             }
 
-            if (ModelState.IsValid)
+            var userToUpdate = await _context.Users.SingleOrDefaultAsync(s => s.UserId == id);
+            if (await TryUpdateModelAsync<User>(
+                userToUpdate,
+                "",
+                s => s.Login, s => s.Password, s => s.Mail, s => s.Name))
             {
                 try
                 {
-                    _context.Update(user);
                     await _context.SaveChangesAsync();
+                    return RedirectToAction(nameof(Index));
                 }
-                catch (DbUpdateConcurrencyException)
+                catch (DbUpdateException exception)
                 {
-                    if (!UserExists(user.UserId))
-                    {
-                        return NotFound();
-                    }
-                    else
-                    {
-                        throw;
-                    }
+                    ModelState.AddModelError("", "Unable to save changes. " +
+                        "Try again. " +
+                    "ERROR: " + exception);
                 }
-                return RedirectToAction(nameof(Index));
             }
-            return View(user);
+            return View(userToUpdate);
         }
 
         // GET: Users/Delete/5
-        public async Task<IActionResult> Delete(int? id)
+        public async Task<IActionResult> Delete(int? id, bool? saveChangesError = false)
         {
             if (id == null)
             {
@@ -137,10 +139,17 @@ namespace zeMVC.Controllers
             }
 
             var user = await _context.Users
+                .AsNoTracking()
                 .SingleOrDefaultAsync(m => m.UserId == id);
             if (user == null)
             {
                 return NotFound();
+            }
+
+            if (saveChangesError.GetValueOrDefault())
+            {
+                ViewData["ErrorMessage"] =
+                    "Delete failed. Try again.";
             }
 
             return View(user);
@@ -151,10 +160,25 @@ namespace zeMVC.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var user = await _context.Users.SingleOrDefaultAsync(m => m.UserId == id);
-            _context.Users.Remove(user);
-            await _context.SaveChangesAsync();
-            return RedirectToAction(nameof(Index));
+            var user = await _context.Users
+                .AsNoTracking()
+                .SingleOrDefaultAsync(m => m.UserId == id);
+
+            if (user == null)
+            {
+                return RedirectToAction(nameof(Index));
+            }
+
+            try
+            {
+                _context.Users.Remove(user);
+                await _context.SaveChangesAsync();
+                return RedirectToAction(nameof(Index));
+            }
+            catch (DbUpdateException)
+            {
+                return RedirectToAction(nameof(Delete), new { id = id, saveChangesError = true });
+            }
         }
 
         private bool UserExists(int id)
