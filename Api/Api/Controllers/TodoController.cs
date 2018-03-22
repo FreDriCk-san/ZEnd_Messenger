@@ -17,6 +17,7 @@ namespace Api.Controllers
             if (_context.TodoItems.Count() == 0)
             {
                 _context.TodoItems.Add(new TodoItem { Name = "Item1" });
+                _context.TodoItems.Add(new TodoItem { Name = "Item2" });
                 _context.SaveChanges();
             }
         }
@@ -48,7 +49,7 @@ namespace Api.Controllers
             }
 
             _context.TodoItems.Add(item);
-            _context.SaveChanges();
+             _context.SaveChanges();
 
             return CreatedAtRoute("GetTodo", new { id = item.Id }, item);
         }
