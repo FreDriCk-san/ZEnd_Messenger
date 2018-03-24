@@ -1,0 +1,15 @@
+C:\Users\user\source\repos\zeAPI\zeAPI\obj\Debug\zeAPI.csprojResolveAssemblyReference.cache
+C:\Users\user\source\repos\zeAPI\zeAPI\obj\Debug\zeAPI.csproj.CoreCompileInputs.cache
+C:\Users\user\source\repos\zeAPI\zeAPI\bin\Debug\zeAPI.exe.config
+C:\Users\user\source\repos\zeAPI\zeAPI\bin\Debug\zeAPI.exe
+C:\Users\user\source\repos\zeAPI\zeAPI\bin\Debug\zeAPI.pdb
+C:\Users\user\source\repos\zeAPI\zeAPI\bin\Debug\Microsoft.AspNet.SignalR.Client.dll
+C:\Users\user\source\repos\zeAPI\zeAPI\bin\Debug\Newtonsoft.Json.dll
+C:\Users\user\source\repos\zeAPI\zeAPI\bin\Debug\ZeroCdnClients.dll
+C:\Users\user\source\repos\zeAPI\zeAPI\bin\Debug\Microsoft.AspNet.SignalR.Client.xml
+C:\Users\user\source\repos\zeAPI\zeAPI\bin\Debug\Newtonsoft.Json.xml
+C:\Users\user\source\repos\zeAPI\zeAPI\bin\Debug\ZeroCdnClients.pdb
+C:\Users\user\source\repos\zeAPI\zeAPI\bin\Debug\ZeroCdnClients.xml
+C:\Users\user\source\repos\zeAPI\zeAPI\obj\Debug\zeAPI.csproj.CopyComplete
+C:\Users\user\source\repos\zeAPI\zeAPI\obj\Debug\zeAPI.exe
+C:\Users\user\source\repos\zeAPI\zeAPI\obj\Debug\zeAPI.pdb

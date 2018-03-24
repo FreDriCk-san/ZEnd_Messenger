@@ -1,189 +1,142 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
+using System.Data.Entity;
 using System.Linq;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Rendering;
-using Microsoft.EntityFrameworkCore;
-using zeMVC.Data;
+using System.Net;
+using System.Web;
+using System.Web.Mvc;
 using zeMVC.Models;
 
 namespace zeMVC.Controllers
 {
     public class UsersController : Controller
     {
-        private readonly MessangerContext _context;
-
-        public UsersController(MessangerContext context)
-        {
-            _context = context;
-        }
+        private MessangerContext db = new MessangerContext();
 
         // GET: Users
-        public async Task<IActionResult> Index()
+        public async Task<ActionResult> Index()
         {
-            return View(await _context.Users.ToListAsync());
+            var result = new JsonResult();
+            result.JsonRequestBehavior = JsonRequestBehavior.AllowGet;
+            result.Data = await db.Users.Select(t => new { Id = t.Id, Name = t.Name, Avatar = t.Avatar }).ToListAsync();
+
+            return result;
         }
 
         // GET: Users/Details/5
-        public async Task<IActionResult> Details(int? id)
+        public async Task<ActionResult> Details(int? id)
         {
+            var result = new JsonResult();
+            result.JsonRequestBehavior = JsonRequestBehavior.AllowGet;
+            result.Data = null;
+
             if (id == null)
             {
-                return NotFound();
+                return result;
             }
 
-            var user = await _context.Users
-                .Include(s => s.Chat)
-                    .ThenInclude(e => e.Messages)
-                .AsNoTracking()
-                .SingleOrDefaultAsync(m => m.UserId == id);
-            if (user == null)
-            {
-                return NotFound();
-            }
+            var users = await db.Users.Select(t => new { Id = t.Id, Name = t.Name, Avatar = t.Avatar }).FirstOrDefaultAsync(f => f.Id == id);
+            result.Data = users;
 
-            return View(user);
+            return result;
         }
 
         // GET: Users/Create
-        public IActionResult Create()
+        public ActionResult Create()
         {
             return View();
         }
 
         // POST: Users/Create
+        // Чтобы защититься от атак чрезмерной передачи данных, включите определенные свойства, для которых следует установить привязку. Дополнительные 
+        // сведения см. в статье https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Name,Mail,Password,Login")] User user)
+        //[ValidateAntiForgeryToken]
+        public async Task<ActionResult> Create(Users users)
         {
-            try
-            {
-                if (ModelState.IsValid)
-                {
-                    if (_context.Users.Any(p => p.Login == user.Login))
-                    {
-                        ModelState.AddModelError("", "Login already exists.");
-                    }
-                    else
-                    {
-                        _context.Add(user);
-                        await _context.SaveChangesAsync();
-                        return RedirectToAction(nameof(Index));
-                    }
+            var result = new JsonResult();
+            result.JsonRequestBehavior = JsonRequestBehavior.AllowGet;
 
-                }
-            }
-            catch (DbUpdateException exception)
+            if (ModelState.IsValid)
             {
-                ModelState.AddModelError("", "Unable to save changes. " +
-                    "Try again. " +
-                "ERROR: " + exception);
+                db.Users.Add(users);
+                await db.SaveChangesAsync();
+                result.Data = true;
+                return result;
             }
-            return View(user);
-        }
+            result.Data = false;
 
-        // GET: Users/Edit/5
-        public async Task<IActionResult> Edit(int? id)
-        {
-            if (id == null)
-            {
-                return NotFound();
-            }
-
-            var user = await _context.Users.SingleOrDefaultAsync(m => m.UserId == id);
-            if (user == null)
-            {
-                return NotFound();
-            }
-            return View(user);
+            return result;
         }
 
         // POST: Users/Edit/5
-        [HttpPost, ActionName("Edit")]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> EditPost(int? id)
+        // Чтобы защититься от атак чрезмерной передачи данных, включите определенные свойства, для которых следует установить привязку. Дополнительные 
+        // сведения см. в статье https://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost]
+        //[ValidateAntiForgeryToken]
+        public async Task<ActionResult> Edit(Users users, string oldPassword)
         {
-            if (id == null)
-            {
-                return NotFound();
-            }
+            var result = new JsonResult();
+            result.JsonRequestBehavior = JsonRequestBehavior.AllowGet;
+            var password = oldPassword == null ? users.Password : oldPassword;
 
-            var userToUpdate = await _context.Users.SingleOrDefaultAsync(s => s.UserId == id);
-            if (await TryUpdateModelAsync<User>(
-                userToUpdate,
-                "",
-                s => s.Login, s => s.Password, s => s.Mail, s => s.Name))
+            if (ModelState.IsValid && db.Users.Any(a => a.Login == users.Login && a.Password == password))
             {
-                try
-                {
-                    await _context.SaveChangesAsync();
-                    return RedirectToAction(nameof(Index));
-                }
-                catch (DbUpdateException exception)
-                {
-                    ModelState.AddModelError("", "Unable to save changes. " +
-                        "Try again. " +
-                    "ERROR: " + exception);
-                }
+                db.Entry(users).State = EntityState.Modified;
+                await db.SaveChangesAsync();
+                result.Data = true;
+                return result;
             }
-            return View(userToUpdate);
+            result.Data = false;
+
+            return result;
         }
 
         // GET: Users/Delete/5
-        public async Task<IActionResult> Delete(int? id, bool? saveChangesError = false)
+        public async Task<ActionResult> Delete(int? id)
         {
             if (id == null)
             {
-                return NotFound();
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-
-            var user = await _context.Users
-                .AsNoTracking()
-                .SingleOrDefaultAsync(m => m.UserId == id);
-            if (user == null)
+            Users users = await db.Users.FindAsync(id);
+            if (users == null)
             {
-                return NotFound();
+                return HttpNotFound();
             }
-
-            if (saveChangesError.GetValueOrDefault())
-            {
-                ViewData["ErrorMessage"] =
-                    "Delete failed. Try again.";
-            }
-
-            return View(user);
+            return View(users);
         }
 
         // POST: Users/Delete/5
         [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(int id)
+        //[ValidateAntiForgeryToken]
+        public async Task<ActionResult> DeleteConfirmed(int id)
         {
-            var user = await _context.Users
-                .AsNoTracking()
-                .SingleOrDefaultAsync(m => m.UserId == id);
+            var result = new JsonResult();
+            result.JsonRequestBehavior = JsonRequestBehavior.AllowGet;
 
-            if (user == null)
+            Users users = await db.Users.FindAsync(id);
+            if (null != users)
             {
-                return RedirectToAction(nameof(Index));
+                db.Users.Remove(users);
+                await db.SaveChangesAsync();
+                result.Data = true;
+                return result;
             }
+            result.Data = false;
 
-            try
-            {
-                _context.Users.Remove(user);
-                await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
-            }
-            catch (DbUpdateException)
-            {
-                return RedirectToAction(nameof(Delete), new { id = id, saveChangesError = true });
-            }
+            return result;
         }
 
-        private bool UserExists(int id)
+        protected override void Dispose(bool disposing)
         {
-            return _context.Users.Any(e => e.UserId == id);
+            if (disposing)
+            {
+                db.Dispose();
+            }
+            base.Dispose(disposing);
         }
     }
 }
