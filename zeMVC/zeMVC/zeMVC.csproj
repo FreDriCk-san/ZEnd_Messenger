@@ -159,16 +159,20 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\ChatsController.cs" />
+    <Compile Include="Controllers\DeletedMessagesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\MessagesController.cs" />
     <Compile Include="Controllers\UsersController.cs" />
+    <Compile Include="Controllers\UsersInChatsController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\Chats.cs" />
+    <Compile Include="Models\DeletedMessages.cs" />
     <Compile Include="Models\Messages.cs" />
     <Compile Include="Models\MessangerContext.cs" />
     <Compile Include="Models\Users.cs" />
+    <Compile Include="Models\UsersInChat.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -212,7 +216,9 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Views\Chats\" />
+    <Folder Include="Views\DeletedMessages\" />
     <Folder Include="Views\Messages\" />
+    <Folder Include="Views\UsersInChats\" />
     <Folder Include="Views\Users\" />
   </ItemGroup>
   <ItemGroup>

@@ -10,7 +10,7 @@ namespace zeMVC.Models
     public class MessangerContext : DbContext
     {
 
-        public MessangerContext() : base("name=ZEnd_DB")
+        public MessangerContext() : base("name=ZEnd_DB3")
         {
         }
 
@@ -25,5 +25,10 @@ namespace zeMVC.Models
         public System.Data.Entity.DbSet<zeMVC.Models.Messages> Messages { get; set; }
 
         public System.Data.Entity.DbSet<zeMVC.Models.Users> Users { get; set; }
+
+        public System.Data.Entity.DbSet<zeMVC.Models.UsersInChat> UsersInChat { get; set; }
+
+        public System.Data.Entity.DbSet<zeMVC.Models.DeletedMessages> DeletedMessages { get; set; }
+
     }
 }

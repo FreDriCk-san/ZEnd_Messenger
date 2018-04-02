@@ -13,3 +13,18 @@ C:\Users\user\source\repos\zeAPI\zeAPI\bin\Debug\ZeroCdnClients.xml
 C:\Users\user\source\repos\zeAPI\zeAPI\obj\Debug\zeAPI.csproj.CopyComplete
 C:\Users\user\source\repos\zeAPI\zeAPI\obj\Debug\zeAPI.exe
 C:\Users\user\source\repos\zeAPI\zeAPI\obj\Debug\zeAPI.pdb
+D:\Проект по Лёхе\Coding\zeAPI\zeAPI\obj\Debug\zeAPI.csprojResolveAssemblyReference.cache
+D:\Проект по Лёхе\Coding\zeAPI\zeAPI\obj\Debug\zeAPI.csproj.CoreCompileInputs.cache
+D:\Проект по Лёхе\Coding\zeAPI\zeAPI\obj\Debug\zeAPI.exe
+D:\Проект по Лёхе\Coding\zeAPI\zeAPI\obj\Debug\zeAPI.pdb
+D:\Проект по Лёхе\Coding\zeAPI\zeAPI\bin\Debug\zeAPI.exe.config
+D:\Проект по Лёхе\Coding\zeAPI\zeAPI\bin\Debug\zeAPI.exe
+D:\Проект по Лёхе\Coding\zeAPI\zeAPI\bin\Debug\zeAPI.pdb
+D:\Проект по Лёхе\Coding\zeAPI\zeAPI\bin\Debug\Microsoft.AspNet.SignalR.Client.dll
+D:\Проект по Лёхе\Coding\zeAPI\zeAPI\bin\Debug\Newtonsoft.Json.dll
+D:\Проект по Лёхе\Coding\zeAPI\zeAPI\bin\Debug\ZeroCdnClients.dll
+D:\Проект по Лёхе\Coding\zeAPI\zeAPI\bin\Debug\Microsoft.AspNet.SignalR.Client.xml
+D:\Проект по Лёхе\Coding\zeAPI\zeAPI\bin\Debug\Newtonsoft.Json.xml
+D:\Проект по Лёхе\Coding\zeAPI\zeAPI\bin\Debug\ZeroCdnClients.pdb
+D:\Проект по Лёхе\Coding\zeAPI\zeAPI\bin\Debug\ZeroCdnClients.xml
+D:\Проект по Лёхе\Coding\zeAPI\zeAPI\obj\Debug\zeAPI.csproj.CopyComplete

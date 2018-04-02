@@ -17,6 +17,8 @@ namespace zeMVC.Models
         [Required]
         public DateTime SentDate { get; set; }
 
+        public bool IsRead { get; set; }
+
         [Required, ForeignKey("Chat")]
         public int ChatId { get; set; }
         public virtual Chats Chat { get; set; }
@@ -25,6 +27,6 @@ namespace zeMVC.Models
         public int UserId { get; set; }
         public virtual Users User { get; set; }
 
-        public bool IsRead { get; set; }
+        
     }
 }

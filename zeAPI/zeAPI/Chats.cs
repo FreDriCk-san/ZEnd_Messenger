@@ -28,24 +28,42 @@ namespace zeAPI
 
         }
 
-        public bool Create(string name)
+        //public bool Create(string name)
+        //{
+        //    try
+        //    {
+        //        return JsonConvert.DeserializeObject<bool>(
+        //            Task.Run(async () =>
+        //            {
+        //                var content = ChatDictionary(this);
+        //                content["Name"] = name;
+        //                var httpClient = new HttpClient();
+        //                //FIX: How to take server URL
+        //                var response = await httpClient.PostAsync(String.Format("{0}Chats/Create", "http://localhost:58040/"), new FormUrlEncodedContent(content));
+        //                return await response.Content.ReadAsStringAsync();
+        //            }).Result);
+        //    }
+        //    catch { }
+
+        //    return false;
+        //}
+
+        public List<Users> GetUsers()
         {
+            var users = new List<Users>();
+
             try
             {
-                return JsonConvert.DeserializeObject<bool>(
-                    Task.Run(async () =>
-                    {
-                        var content = ChatDictionary(this);
-                        content["Name"] = name;
+                users.AddRange(JsonConvert.DeserializeObject<Users[]>(
+                    Task.Run(async () => {
                         var httpClient = new HttpClient();
-                        //FIX: How to take server URL
-                        var response = await httpClient.PostAsync(String.Format("{0}Chats/Create", "http://localhost:58040/"), new FormUrlEncodedContent(content));
+                        var response = await httpClient.GetAsync(String.Format("{0}Users/ChatUsers?ChatId={1}", "http://localhost:58040/", Id));
                         return await response.Content.ReadAsStringAsync();
-                    }).Result);
+                    }).Result));
             }
             catch { }
 
-            return false;
+            return users;
         }
 
         public bool ChangeName(string name)
@@ -60,6 +78,48 @@ namespace zeAPI
                         var httpClient = new HttpClient();
                         //FIX: How to take server URL
                         var response = await httpClient.PostAsync(String.Format("{0}Chats/Edit", "http://localhost:58040/"), new FormUrlEncodedContent(content));
+                        return await response.Content.ReadAsStringAsync();
+                    }).Result);
+            }
+            catch { }
+
+            return false;
+        }
+
+        public static List<Chats> FindPublics(string name, int? start, int? count)
+        {
+            var chats = new List<Chats>();
+
+            try
+            {
+                chats.AddRange(JsonConvert.DeserializeObject<Chats[]>(
+                    Task.Run(async () => {
+                        var httpClient = new HttpClient();
+                        //FIX: How to take server URL
+                        var response = await httpClient.GetAsync(String.Format("{0}Chats/FindPublics?Name={1}&Start={2}&Count={3}", "http://localhost:58040/", name, start, count));
+                        return await response.Content.ReadAsStringAsync();
+                    }).Result));
+            }
+            catch { }
+
+            return chats;
+        }
+
+        public bool DeleteUser(Users user, Users user1)
+        {
+            try
+            {
+                return Newtonsoft.Json.JsonConvert.DeserializeObject<bool>(
+                    Task.Run(async () =>
+                    {
+                        var content = new Dictionary<string, string>();
+                        content.Add("ChatId", Id.ToString());
+                        content.Add("UserId", user1.Id.ToString());
+                        content.Add("Login", user.Login.ToString());
+                        content.Add("Password", user.Password.ToString());
+                        var httpClient = new HttpClient();
+                        //FIX: How to take server URL
+                        var response = await httpClient.PostAsync(String.Format("{0}UsersInChats/Delete", "http://localhost:58040/"), new FormUrlEncodedContent(content));
                         return await response.Content.ReadAsStringAsync();
                     }).Result);
             }

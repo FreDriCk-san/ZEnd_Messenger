@@ -43,11 +43,102 @@ namespace zeMVC.Controllers
             return result;
         }
 
-        // GET: Users/Create
-        public ActionResult Create()
+
+        //GET: Users/IsExists
+        //If Email exists - use @login for checking Users.Email!!!
+        public async Task<ActionResult> IsExists(string login, string password)
         {
-            return View();
+            var result = new JsonResult();
+            result.JsonRequestBehavior = JsonRequestBehavior.AllowGet;
+
+            var userExist = await db.Users.FirstOrDefaultAsync(e => (e.Login == login || e.Email == login) && (e.Password == password));
+
+            result.Data = userExist;
+
+            return result;
         }
+
+
+        //GET: Users/FindUsers/"Foo"
+        public async Task<ActionResult> FindUsers(string Name, int? Start, int? Count)
+        {
+            var result = new JsonResult();
+            result.JsonRequestBehavior = JsonRequestBehavior.AllowGet;
+            result.Data = null;
+            if (Name == null)
+            {
+                Name = "";
+            }
+            var users = await db.Users.Where(e => e.Name.Contains(Name)).ToListAsync();
+            if (users != null)
+            {
+                if (!Start.HasValue || Start.Value < 0)
+                {
+                    Start = 0;
+                }
+
+                if (Start.Value >= users.Count)
+                {
+                    return result;
+                }
+
+                if (!Count.HasValue || Count.Value <= 0)
+                {
+                    Count = users.Count;
+                }
+
+                Count = Math.Min(Math.Min(Count.Value, users.Count - Start.Value), 100);
+                result.Data = users.GetRange(Start.Value, Count.Value);
+            }
+
+            return result;
+        }
+
+
+        //GET: Users/ChatUsers/2
+        public async Task<ActionResult> ChatUsers(int? ChatId, int? Start, int? Count)
+        {
+            var result = new JsonResult();
+            result.JsonRequestBehavior = JsonRequestBehavior.AllowGet;
+            result.Data = null;
+
+            if (!ChatId.HasValue)
+            {
+                return result;
+            }
+
+            var users = await db.Users.Where(x => db.UsersInChat.Any(f => f.ChatId == ChatId && f.UserId == f.Id)).Select(a => new { Id = a.Id, Name = a.Name, Avatar = a.Avatar }).ToListAsync();
+
+            if (null != users)
+            {
+
+                if (!Start.HasValue || Start.Value < 0)
+                {
+                    Start = 0;
+                }
+
+                if (Start.Value >= users.Count)
+                {
+                    return result;
+                }
+
+                if (!Count.HasValue || Count.Value <= 0)
+                {
+                    Count = users.Count;
+                }
+
+                Count = Math.Min(Math.Min(Count.Value, users.Count - Start.Value), 100);
+                result.Data = users.GetRange(Start.Value, Count.Value);
+            }
+
+            return result;
+        }
+
+        //// GET: Users/Create
+        //public ActionResult Create()
+        //{
+        //    return View();
+        //}
 
         // POST: Users/Create
         // Чтобы защититься от атак чрезмерной передачи данных, включите определенные свойства, для которых следует установить привязку. Дополнительные 
@@ -94,20 +185,20 @@ namespace zeMVC.Controllers
             return result;
         }
 
-        // GET: Users/Delete/5
-        public async Task<ActionResult> Delete(int? id)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            Users users = await db.Users.FindAsync(id);
-            if (users == null)
-            {
-                return HttpNotFound();
-            }
-            return View(users);
-        }
+        //// GET: Users/Delete/2
+        //public async Task<ActionResult> Delete(int? id)
+        //{
+        //    if (id == null)
+        //    {
+        //        return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+        //    }
+        //    Users users = await db.Users.FindAsync(id);
+        //    if (users == null)
+        //    {
+        //        return HttpNotFound();
+        //    }
+        //    return View(users);
+        //}
 
         // POST: Users/Delete/5
         [HttpPost, ActionName("Delete")]
@@ -125,6 +216,7 @@ namespace zeMVC.Controllers
                 result.Data = true;
                 return result;
             }
+
             result.Data = false;
 
             return result;

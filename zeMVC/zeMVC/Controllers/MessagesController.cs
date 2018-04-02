@@ -20,10 +20,54 @@ namespace zeMVC.Controllers
         {
             var result = new JsonResult();
             result.JsonRequestBehavior = JsonRequestBehavior.AllowGet;
+
             result.Data = await db.Messages.Select(m => new { Id = m.Id, Text = m.Text, Date = m.SentDate, ChatId = m.ChatId, UserId = m.UserId, IsRead = m.IsRead }).ToListAsync();
 
             return result;
         }
+
+        // POST: Messages/ChatMessages/2
+        public async Task<ActionResult> ChatMessages(int? ChatId, int? UserId, int? Start, int? Count)
+        {
+            var result = new JsonResult();
+            result.JsonRequestBehavior = JsonRequestBehavior.AllowGet;
+            result.Data = null;
+
+            if (!ChatId.HasValue || !UserId.HasValue)
+            {
+                return result;
+            }
+
+            var messages = await db.Messages.Select(e => new { Id = e.Id, Text = e.Text, Date = e.SentDate, ChatId = e.ChatId, UserId = e.UserId, IsReaded = e.IsRead }).Where(z => z.ChatId == ChatId && !db.DeletedMessages.Any(e => e.UserId == UserId && e.MessageId == z.Id)).ToListAsync();
+
+            if (messages != null)
+            {
+
+                if (!Start.HasValue || Start.Value < 0)
+                {
+                    Start = 0;
+                }
+
+                if (Start.Value >= messages.Count)
+                {
+                    return result;
+                }
+
+                if (!Count.HasValue || Count.Value <= 0)
+                {
+                    Count = messages.Count;
+                }
+
+                Count = Math.Min(Math.Min(Count.Value, messages.Count - Start.Value), 100);
+                Start = messages.Count - Count - Start;
+                messages = messages.GetRange(Start.Value, Count.Value);
+                messages.Reverse();
+                result.Data = messages;
+            }
+
+            return result;
+        }
+
 
         // POST: Messages/Create
         // Чтобы защититься от атак чрезмерной передачи данных, включите определенные свойства, для которых следует установить привязку. Дополнительные 

@@ -13,14 +13,14 @@ namespace zeMVC.Models
         [Required]
         public string Name { get; set; }
 
-        [StringLength(40)]
-        public string Email { get; set; }
-
         [StringLength(15)]
         public string Login { get; set; }
 
         [Required]
         public string Password { get; set; }
+
+        [StringLength(40)]
+        public string Email { get; set; }
 
         public string Avatar { get; set; }
 

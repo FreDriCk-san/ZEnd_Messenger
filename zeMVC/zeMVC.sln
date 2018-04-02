@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "zeMVC", "zeMVC\zeMVC.csproj
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "zeMVC.Tests", "zeMVC.Tests\zeMVC.Tests.csproj", "{715AC4CA-AE27-412B-8811-225DCFD76153}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "zeAPI", "..\zeAPI\zeAPI\zeAPI.csproj", "{423C8934-D85E-43B5-AB64-8C109495E598}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{715AC4CA-AE27-412B-8811-225DCFD76153}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{715AC4CA-AE27-412B-8811-225DCFD76153}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{715AC4CA-AE27-412B-8811-225DCFD76153}.Release|Any CPU.Build.0 = Release|Any CPU
+		{423C8934-D85E-43B5-AB64-8C109495E598}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{423C8934-D85E-43B5-AB64-8C109495E598}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{423C8934-D85E-43B5-AB64-8C109495E598}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{423C8934-D85E-43B5-AB64-8C109495E598}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
