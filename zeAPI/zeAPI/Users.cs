@@ -128,6 +128,25 @@ namespace zeAPI
         }
 
 
+        public static List<Users> AllUsers()
+        {
+            var users = new List<Users>();
+            try
+            {
+                users.AddRange(JsonConvert.DeserializeObject<Users[]>(
+                        Task.Run(async () =>
+                        {
+                            var httpClient = new HttpClient();
+                            //FIX: How to take server URL
+                            var response = await httpClient.GetAsync(String.Format("{0}Users", "http://localhost:58040/"));
+                            return await response.Content.ReadAsStringAsync();
+                        }).Result));
+            }
+            catch { }
+
+            return users;
+        }
+
 
         public static Users GetInfo(int id)
         {
@@ -135,7 +154,7 @@ namespace zeAPI
 
             try
             {
-                user = Newtonsoft.Json.JsonConvert.DeserializeObject<Users>(
+                user = JsonConvert.DeserializeObject<Users>(
                     Task.Run(async () =>
                     {
                         var httpClient = new HttpClient();
@@ -201,7 +220,7 @@ namespace zeAPI
                         var content = new Dictionary<string, string>();
                         content.Add("UserId", user.Id.ToString());
                         content.Add("ChatId", chat.Id.ToString());
-                        content.Add("CanWrite", "True");
+                        //content.Add("CanWrite", "True");
                         var httpClient = new HttpClient();
                         //FIX: How to take server URL
                         var response = await httpClient.PostAsync(String.Format("{0}UsersInChats/Create", "http://localhost:58040/"), new FormUrlEncodedContent(content));
@@ -212,7 +231,7 @@ namespace zeAPI
 
             catch { }
 
-            Connection.hubProxy.Invoke("newChat", chat, users.ToList());
+            //Connection.hubProxy.Invoke("newChat", chat, users.ToList());
 
             return true;
         }
@@ -230,10 +249,10 @@ namespace zeAPI
                         content.Add("Login", Login);
                         content.Add("Password", Password);
                         content.Add("ChatId", chat.Id.ToString());
-                        content.Add("userId", Id.ToString());
+                        content.Add("UserId", Id.ToString());
                         var httpClient = new HttpClient();
                         //FIX: How to take server URL
-                        var response = await httpClient.PostAsync(String.Format("{0}usersInChats/delete", "http://localhost:58040/"), new FormUrlEncodedContent(content));
+                        var response = await httpClient.PostAsync(String.Format("{0}UsersInChats/Delete", "http://localhost:58040/"), new FormUrlEncodedContent(content));
                         return await response.Content.ReadAsStringAsync();
                     }).Result);
             }
@@ -269,7 +288,7 @@ namespace zeAPI
             var messages = new List<Messages>();
             try
             {
-                messages.AddRange(Newtonsoft.Json.JsonConvert.DeserializeObject<Messages[]>(
+                messages.AddRange(JsonConvert.DeserializeObject<Messages[]>(
                     Task.Run(async () => {
                         var httpClient = new HttpClient();
                         //FIX: How to take server URL
@@ -365,7 +384,7 @@ namespace zeAPI
                         content.Add("UserId", Id.ToString());
                         var httpClient = new HttpClient();
                         //FIX: How to take server URL
-                        var response = await httpClient.PostAsync(String.Format("{0}deletedMessages/create", "http://localhost:58040/"), new FormUrlEncodedContent(content));
+                        var response = await httpClient.PostAsync(String.Format("{0}DeletedMessages/Create", "http://localhost:58040/"), new FormUrlEncodedContent(content));
                         return await response.Content.ReadAsStringAsync();
                     }).Result);
             }

@@ -79,7 +79,7 @@ namespace zeMVC.Controllers
             var result = new JsonResult();
             result.JsonRequestBehavior = JsonRequestBehavior.AllowGet;
 
-            if (ModelState.IsValid && !db.Users.Any(u => u.Id == messages.UserId))
+            if (ModelState.IsValid)                                          //&& !db.Users.Any(u => u.Id == messages.UserId))
             {
                 messages.SentDate = DateTime.Now;
                 db.Messages.Add(messages);

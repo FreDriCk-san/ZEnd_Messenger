@@ -20,7 +20,7 @@ namespace zeMVC.Controllers
         {
             var result = new JsonResult();
             result.JsonRequestBehavior = JsonRequestBehavior.AllowGet;
-            result.Data = await db.Users.Select(t => new { Id = t.Id, Name = t.Name, Avatar = t.Avatar }).ToListAsync();
+            result.Data = await db.Users.Select(t => new { Id = t.Id, Name = t.Name}).ToListAsync();
 
             return result;
         }

@@ -18,7 +18,7 @@ namespace zeAPI
         bool IsRead { get; }
 
         [JsonConstructor]
-        private Messages(int id, int chatId, int userId, string text, DateTime date, bool isRead)
+        private Messages(int id, string text, int chatId, int userId, DateTime date, bool isRead)
         {
             Id = id;
             ChatId = chatId;
@@ -32,7 +32,7 @@ namespace zeAPI
         {
             try
             {
-                return Newtonsoft.Json.JsonConvert.DeserializeObject<bool>(Task.Run(async () =>
+                return JsonConvert.DeserializeObject<bool>(Task.Run(async () =>
                 {
                     var content = new Dictionary<string, string>();
                     content.Add("messageId", Id.ToString());

@@ -146,7 +146,7 @@ namespace zeMVC.Controllers
             var result = new JsonResult();
             result.JsonRequestBehavior = JsonRequestBehavior.AllowGet;
 
-            if (ModelState.IsValid && !db.Users.Any(c => c.Id == chats.Creator))
+            if (ModelState.IsValid)                                          //&& !db.Users.Any(c => c.Id == chats.Creator))
             {
                 db.Chats.Add(chats);
                 await db.SaveChangesAsync();

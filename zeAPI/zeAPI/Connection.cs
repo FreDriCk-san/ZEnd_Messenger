@@ -16,7 +16,7 @@ namespace zeAPI
         {
             if (hub == null)
             {
-                hub = new HubConnection("http://localhost:58040/");
+                hub = new HubConnection(url:"http://localhost:58040/");
                 hubProxy = hub.CreateHubProxy("ZEnd_Messenger");
                 hub.Start().Wait();
                 hubProxy.On("newMessage", newMessage);
