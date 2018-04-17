@@ -231,7 +231,7 @@ namespace zeAPI
 
             catch { }
 
-            //Connection.hubProxy.Invoke("newChat", chat, users.ToList());
+            Connection.hubProxy.Invoke("newChat", chat, users.ToList());
 
             return true;
         }
@@ -364,6 +364,7 @@ namespace zeAPI
                     var response = await httpClient.PostAsync(String.Format("{0}Messages/Create", "http://localhost:58040/"), new FormUrlEncodedContent(content));
                     return await response.Content.ReadAsStringAsync();
                 }).Result);
+                Connection.hubProxy.Invoke("newMessage", chat, message);
             }
             catch { }
 

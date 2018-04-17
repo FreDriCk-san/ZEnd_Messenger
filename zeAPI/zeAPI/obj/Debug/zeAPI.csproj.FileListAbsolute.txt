@@ -28,3 +28,14 @@ D:\Проект по Лёхе\Coding\zeAPI\zeAPI\bin\Debug\Newtonsoft.Json.xml
 D:\Проект по Лёхе\Coding\zeAPI\zeAPI\bin\Debug\ZeroCdnClients.pdb
 D:\Проект по Лёхе\Coding\zeAPI\zeAPI\bin\Debug\ZeroCdnClients.xml
 D:\Проект по Лёхе\Coding\zeAPI\zeAPI\obj\Debug\zeAPI.csproj.CopyComplete
+D:\Проект по Лёхе\Coding\zeAPI\zeAPI\bin\Debug\Microsoft.AspNet.SignalR.Core.dll
+D:\Проект по Лёхе\Coding\zeAPI\zeAPI\bin\Debug\Microsoft.AspNet.SignalR.SystemWeb.dll
+D:\Проект по Лёхе\Coding\zeAPI\zeAPI\bin\Debug\Microsoft.Owin.dll
+D:\Проект по Лёхе\Coding\zeAPI\zeAPI\bin\Debug\Microsoft.Owin.Host.SystemWeb.dll
+D:\Проект по Лёхе\Coding\zeAPI\zeAPI\bin\Debug\Microsoft.Owin.Security.dll
+D:\Проект по Лёхе\Coding\zeAPI\zeAPI\bin\Debug\Owin.dll
+D:\Проект по Лёхе\Coding\zeAPI\zeAPI\bin\Debug\Microsoft.AspNet.SignalR.Core.xml
+D:\Проект по Лёхе\Coding\zeAPI\zeAPI\bin\Debug\Microsoft.AspNet.SignalR.SystemWeb.xml
+D:\Проект по Лёхе\Coding\zeAPI\zeAPI\bin\Debug\Microsoft.Owin.xml
+D:\Проект по Лёхе\Coding\zeAPI\zeAPI\bin\Debug\Microsoft.Owin.Host.SystemWeb.xml
+D:\Проект по Лёхе\Coding\zeAPI\zeAPI\bin\Debug\Microsoft.Owin.Security.xml

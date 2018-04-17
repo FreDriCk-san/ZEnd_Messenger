@@ -26,7 +26,7 @@ namespace zeMVC.Controllers
             return result;
         }
 
-        // POST: Messages/ChatMessages/2
+        // GET: Messages/ChatMessages/2
         public async Task<ActionResult> ChatMessages(int? ChatId, int? UserId, int? Start, int? Count)
         {
             var result = new JsonResult();

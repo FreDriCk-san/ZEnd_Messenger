@@ -33,18 +33,13 @@ namespace ZEnd
             currentChat = null;
             //Store name of User----
 
-            //if (null != currentChat)
-            //{
-            //    listBox2.Items.Add(zeAPI.Users.GetInfo(users.Id).Name + " - " + "123");
-            //}
-
-            //zeAPI.Connection.Connect(users, c => Dispatcher.Invoke(() =>
-            //{
-            //    if (null != currentChat && c.ChatId == currentChat.Id)
-            //    {
-            //        listBox2.Items.Add(zeAPI.Users.GetInfo(c.UserId).Name + " - " + c.Text + " / " + c.Date.ToShortTimeString());
-            //    }
-            //}), c => Dispatcher.Invoke(() => { chats.Add(c); listBox1.Items.Add(c.Name); }));
+            zeAPI.Connection.Connect(users, c => Dispatcher.Invoke(() =>
+            {
+                if (null != currentChat && c.ChatId == currentChat.Id)
+                {
+                    listBox2.Items.Add(zeAPI.Users.GetInfo(c.UserId).Name + " - " + c.Text + " / " + c.Date.ToShortTimeString());
+                }
+            }), c => Dispatcher.Invoke(() => { chats.Add(c); listBox1.Items.Add(c.Name); }));
 
         }
 
@@ -87,13 +82,12 @@ namespace ZEnd
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             users.SendMessage(messageBox.Text, currentChat);
-            MessageBox.Show("Send to chat: " + currentChat.Name);
             messageBox.Clear();
         }
 
         ~Messenger()
         {
-            //zeAPI.Connection.Disconnect();
+            zeAPI.Connection.Disconnect();
         }
 
         private void userButton_Click(object sender, RoutedEventArgs e)

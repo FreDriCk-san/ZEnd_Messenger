@@ -109,3 +109,16 @@ D:\Проект по Лёхе\Coding\zeMVC\zeMVC\obj\Debug\zeMVC.csproj.CoreComp
 D:\Проект по Лёхе\Coding\zeMVC\zeMVC\obj\Debug\zeMVC.csproj.CopyComplete
 D:\Проект по Лёхе\Coding\zeMVC\zeMVC\obj\Debug\zeMVC.dll
 D:\Проект по Лёхе\Coding\zeMVC\zeMVC\obj\Debug\zeMVC.pdb
+D:\Проект по Лёхе\Coding\zeMVC\zeMVC\bin\Microsoft.AspNet.SignalR.Core.dll
+D:\Проект по Лёхе\Coding\zeMVC\zeMVC\bin\Microsoft.AspNet.SignalR.SystemWeb.dll
+D:\Проект по Лёхе\Coding\zeMVC\zeMVC\bin\Microsoft.Owin.dll
+D:\Проект по Лёхе\Coding\zeMVC\zeMVC\bin\Microsoft.Owin.Host.SystemWeb.dll
+D:\Проект по Лёхе\Coding\zeMVC\zeMVC\bin\Microsoft.Owin.Security.dll
+D:\Проект по Лёхе\Coding\zeMVC\zeMVC\bin\Owin.dll
+D:\Проект по Лёхе\Coding\zeMVC\zeMVC\bin\Microsoft.AspNet.SignalR.Core.xml
+D:\Проект по Лёхе\Coding\zeMVC\zeMVC\bin\Microsoft.AspNet.SignalR.SystemWeb.xml
+D:\Проект по Лёхе\Coding\zeMVC\zeMVC\bin\Microsoft.Owin.xml
+D:\Проект по Лёхе\Coding\zeMVC\zeMVC\bin\Microsoft.Owin.Host.SystemWeb.xml
+D:\Проект по Лёхе\Coding\zeMVC\zeMVC\bin\Microsoft.Owin.Security.xml
+D:\Проект по Лёхе\Coding\zeMVC\zeMVC\obj\Debug\zeMVC.Resource1.resources
+D:\Проект по Лёхе\Coding\zeMVC\zeMVC\obj\Debug\zeMVC.csproj.GenerateResource.cache
