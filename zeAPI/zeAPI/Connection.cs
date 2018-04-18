@@ -12,13 +12,12 @@ namespace zeAPI
     {
         internal static HubConnection hubConnect;
         internal static IHubProxy hubProxy;
-        static string url = "http://localhost:58040/";
 
         public static void Connect(Users user, Action<Messages> newMessage, Action<Chats> newChat)
         {
             if (hubConnect == null)
             {
-                hubConnect = new HubConnection(url);
+                hubConnect = new HubConnection(Resources.ServerURL);
                 hubProxy = hubConnect.CreateHubProxy("ZEnd_Messenger");
                 //ServicePointManager.DefaultConnectionLimit = 10;
                 hubConnect.Start().Wait();

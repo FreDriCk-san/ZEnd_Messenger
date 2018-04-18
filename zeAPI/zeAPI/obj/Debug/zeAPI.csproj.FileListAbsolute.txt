@@ -39,3 +39,31 @@ D:\Проект по Лёхе\Coding\zeAPI\zeAPI\bin\Debug\Microsoft.AspNet.Sign
 D:\Проект по Лёхе\Coding\zeAPI\zeAPI\bin\Debug\Microsoft.Owin.xml
 D:\Проект по Лёхе\Coding\zeAPI\zeAPI\bin\Debug\Microsoft.Owin.Host.SystemWeb.xml
 D:\Проект по Лёхе\Coding\zeAPI\zeAPI\bin\Debug\Microsoft.Owin.Security.xml
+D:\Git_Re_Positories\ZEnd_Messenger\zeAPI\zeAPI\bin\Debug\zeAPI.exe.config
+D:\Git_Re_Positories\ZEnd_Messenger\zeAPI\zeAPI\bin\Debug\zeAPI.exe
+D:\Git_Re_Positories\ZEnd_Messenger\zeAPI\zeAPI\bin\Debug\zeAPI.pdb
+D:\Git_Re_Positories\ZEnd_Messenger\zeAPI\zeAPI\bin\Debug\Microsoft.AspNet.SignalR.Client.dll
+D:\Git_Re_Positories\ZEnd_Messenger\zeAPI\zeAPI\bin\Debug\Microsoft.AspNet.SignalR.Core.dll
+D:\Git_Re_Positories\ZEnd_Messenger\zeAPI\zeAPI\bin\Debug\Microsoft.AspNet.SignalR.SystemWeb.dll
+D:\Git_Re_Positories\ZEnd_Messenger\zeAPI\zeAPI\bin\Debug\Microsoft.Owin.dll
+D:\Git_Re_Positories\ZEnd_Messenger\zeAPI\zeAPI\bin\Debug\Microsoft.Owin.Host.SystemWeb.dll
+D:\Git_Re_Positories\ZEnd_Messenger\zeAPI\zeAPI\bin\Debug\Microsoft.Owin.Security.dll
+D:\Git_Re_Positories\ZEnd_Messenger\zeAPI\zeAPI\bin\Debug\Newtonsoft.Json.dll
+D:\Git_Re_Positories\ZEnd_Messenger\zeAPI\zeAPI\bin\Debug\Owin.dll
+D:\Git_Re_Positories\ZEnd_Messenger\zeAPI\zeAPI\bin\Debug\ZeroCdnClients.dll
+D:\Git_Re_Positories\ZEnd_Messenger\zeAPI\zeAPI\bin\Debug\Microsoft.AspNet.SignalR.Client.xml
+D:\Git_Re_Positories\ZEnd_Messenger\zeAPI\zeAPI\bin\Debug\Microsoft.AspNet.SignalR.Core.xml
+D:\Git_Re_Positories\ZEnd_Messenger\zeAPI\zeAPI\bin\Debug\Microsoft.AspNet.SignalR.SystemWeb.xml
+D:\Git_Re_Positories\ZEnd_Messenger\zeAPI\zeAPI\bin\Debug\Microsoft.Owin.xml
+D:\Git_Re_Positories\ZEnd_Messenger\zeAPI\zeAPI\bin\Debug\Microsoft.Owin.Host.SystemWeb.xml
+D:\Git_Re_Positories\ZEnd_Messenger\zeAPI\zeAPI\bin\Debug\Microsoft.Owin.Security.xml
+D:\Git_Re_Positories\ZEnd_Messenger\zeAPI\zeAPI\bin\Debug\Newtonsoft.Json.xml
+D:\Git_Re_Positories\ZEnd_Messenger\zeAPI\zeAPI\bin\Debug\ZeroCdnClients.pdb
+D:\Git_Re_Positories\ZEnd_Messenger\zeAPI\zeAPI\bin\Debug\ZeroCdnClients.xml
+D:\Git_Re_Positories\ZEnd_Messenger\zeAPI\zeAPI\obj\Debug\zeAPI.csprojResolveAssemblyReference.cache
+D:\Git_Re_Positories\ZEnd_Messenger\zeAPI\zeAPI\obj\Debug\zeAPI.Resources.resources
+D:\Git_Re_Positories\ZEnd_Messenger\zeAPI\zeAPI\obj\Debug\zeAPI.csproj.GenerateResource.cache
+D:\Git_Re_Positories\ZEnd_Messenger\zeAPI\zeAPI\obj\Debug\zeAPI.csproj.CoreCompileInputs.cache
+D:\Git_Re_Positories\ZEnd_Messenger\zeAPI\zeAPI\obj\Debug\zeAPI.csproj.CopyComplete
+D:\Git_Re_Positories\ZEnd_Messenger\zeAPI\zeAPI\obj\Debug\zeAPI.exe
+D:\Git_Re_Positories\ZEnd_Messenger\zeAPI\zeAPI\obj\Debug\zeAPI.pdb

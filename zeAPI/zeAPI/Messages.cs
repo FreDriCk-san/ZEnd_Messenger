@@ -40,8 +40,7 @@ namespace zeAPI
                     content.Add("login", user.Login);
                     content.Add("password", user.Password);
                     var httpClient = new HttpClient();
-                    //FIX: How to take server URL
-                    var response = await httpClient.PostAsync(String.Format("{0}Messages/Delete", "http://localhost:58040/"), new FormUrlEncodedContent(content));
+                    var response = await httpClient.PostAsync(String.Format("{0}Messages/Delete", Resources.ServerURL), new FormUrlEncodedContent(content));
                     return await response.Content.ReadAsStringAsync();
                 }).Result);
             }

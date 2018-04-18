@@ -54,8 +54,7 @@ namespace zeAPI
                         }
 
                         var httpClient = new HttpClient();
-                        //FIX: How to take server URL
-                        var response = await httpClient.PostAsync(String.Format("{0}Users/Create", "http://localhost:58040/"), new FormUrlEncodedContent(content));
+                        var response = await httpClient.PostAsync(String.Format("{0}Users/Create", Resources.ServerURL), new FormUrlEncodedContent(content));
                         return await response.Content.ReadAsStringAsync();
                     }).Result);
             }
@@ -74,8 +73,7 @@ namespace zeAPI
                         Task.Run(async () =>
                         {
                             var httpClient = new HttpClient();
-                            //FIX: How to take server URL
-                            var response = await httpClient.GetAsync(String.Format("{0}Users/IsExists?Login={1}&Password={2}", "http://localhost:58040/", login, password));
+                            var response = await httpClient.GetAsync(String.Format("{0}Users/IsExists?Login={1}&Password={2}", Resources.ServerURL, login, password));
                             return await response.Content.ReadAsStringAsync();
                         }).Result);
             }
@@ -117,8 +115,7 @@ namespace zeAPI
                         Task.Run(async () =>
                         {
                             var httpClient = new HttpClient();
-                            //FIX: How to take server URL
-                            var response = await httpClient.GetAsync(String.Format("{0}Users/FindUsers?Name={1}&Start={2}&Count={3}", "http://localhost:58040/", name, Start, Count));
+                            var response = await httpClient.GetAsync(String.Format("{0}Users/FindUsers?Name={1}&Start={2}&Count={3}", Resources.ServerURL, name, Start, Count));
                             return await response.Content.ReadAsStringAsync();
                         }).Result));
             }
@@ -137,8 +134,7 @@ namespace zeAPI
                         Task.Run(async () =>
                         {
                             var httpClient = new HttpClient();
-                            //FIX: How to take server URL
-                            var response = await httpClient.GetAsync(String.Format("{0}Users", "http://localhost:58040/"));
+                            var response = await httpClient.GetAsync(String.Format("{0}Users", Resources.ServerURL));
                             return await response.Content.ReadAsStringAsync();
                         }).Result));
             }
@@ -158,8 +154,7 @@ namespace zeAPI
                     Task.Run(async () =>
                     {
                         var httpClient = new HttpClient();
-                        //FIX: How to take server URL
-                        var response = await httpClient.GetAsync(String.Format("{0}Users/Details?id={1}", "http://localhost:58040/", id));
+                        var response = await httpClient.GetAsync(String.Format("{0}Users/Details?id={1}", Resources.ServerURL, id));
                         return await response.Content.ReadAsStringAsync();
                     }).Result);
             }
@@ -197,8 +192,7 @@ namespace zeAPI
                         content.Add("Type", "public");
                         content.Add("Creator", Id.ToString());
                         var httpClient = new HttpClient();
-                        //FIX: How to take server URL
-                        var response = await httpClient.PostAsync(String.Format("{0}Chats/Create", "http://localhost:58040/"), new FormUrlEncodedContent(content));
+                        var response = await httpClient.PostAsync(String.Format("{0}Chats/Create", Resources.ServerURL), new FormUrlEncodedContent(content));
                         return await response.Content.ReadAsStringAsync();
                     }).Result);
 
@@ -220,10 +214,8 @@ namespace zeAPI
                         var content = new Dictionary<string, string>();
                         content.Add("UserId", user.Id.ToString());
                         content.Add("ChatId", chat.Id.ToString());
-                        //content.Add("CanWrite", "True");
                         var httpClient = new HttpClient();
-                        //FIX: How to take server URL
-                        var response = await httpClient.PostAsync(String.Format("{0}UsersInChats/Create", "http://localhost:58040/"), new FormUrlEncodedContent(content));
+                        var response = await httpClient.PostAsync(String.Format("{0}UsersInChats/Create", Resources.ServerURL), new FormUrlEncodedContent(content));
                         return await response.Content.ReadAsStringAsync();
                     });
                 }
@@ -251,8 +243,7 @@ namespace zeAPI
                         content.Add("ChatId", chat.Id.ToString());
                         content.Add("UserId", Id.ToString());
                         var httpClient = new HttpClient();
-                        //FIX: How to take server URL
-                        var response = await httpClient.PostAsync(String.Format("{0}UsersInChats/Delete", "http://localhost:58040/"), new FormUrlEncodedContent(content));
+                        var response = await httpClient.PostAsync(String.Format("{0}UsersInChats/Delete", Resources.ServerURL), new FormUrlEncodedContent(content));
                         return await response.Content.ReadAsStringAsync();
                     }).Result);
             }
@@ -271,8 +262,7 @@ namespace zeAPI
                 chats.AddRange(JsonConvert.DeserializeObject<Chats[]>(
                     Task.Run(async () => {
                         var httpClient = new HttpClient();
-                        //FIX: How to take server URL
-                        var response = await httpClient.GetAsync(String.Format("{0}Chats/UserChats?UserId={1}&Start={2}&Count={3}", "http://localhost:58040/", Id, Start, Count));
+                        var response = await httpClient.GetAsync(String.Format("{0}Chats/UserChats?UserId={1}&Start={2}&Count={3}", Resources.ServerURL, Id, Start, Count));
                         return await response.Content.ReadAsStringAsync();
                     }).Result));
             }
@@ -291,8 +281,7 @@ namespace zeAPI
                 messages.AddRange(JsonConvert.DeserializeObject<Messages[]>(
                     Task.Run(async () => {
                         var httpClient = new HttpClient();
-                        //FIX: How to take server URL
-                        var response = await httpClient.GetAsync(String.Format("{0}Messages/ChatMessages?ChatId={1}&UserId={2}&Start={3}&Count={4}", "http://localhost:58040/", chat.Id, Id, Start, Count));
+                        var response = await httpClient.GetAsync(String.Format("{0}Messages/ChatMessages?ChatId={1}&UserId={2}&Start={3}&Count={4}", Resources.ServerURL, chat.Id, Id, Start, Count));
                         return await response.Content.ReadAsStringAsync();
                     }).Result));
             }
@@ -307,15 +296,14 @@ namespace zeAPI
         {
             try
             {
-                return Newtonsoft.Json.JsonConvert.DeserializeObject<bool>(
+                return JsonConvert.DeserializeObject<bool>(
                     Task.Run(async () =>
                     {
                         var content = UserDictionary(this);
                         content["Password"] = password;
                         content.Add("oldPassword", Password);
                         var httpClient = new HttpClient();
-                        //FIX: How to take server URL
-                        var response = await httpClient.PostAsync(String.Format("{0}Users/Edit", "http://localhost:58040/"), new FormUrlEncodedContent(content));
+                        var response = await httpClient.PostAsync(String.Format("{0}Users/Edit", Resources.ServerURL), new FormUrlEncodedContent(content));
                         return await response.Content.ReadAsStringAsync();
                     }).Result);
             }
@@ -330,14 +318,13 @@ namespace zeAPI
         {
             try
             {
-                return Newtonsoft.Json.JsonConvert.DeserializeObject<bool>(
+                return JsonConvert.DeserializeObject<bool>(
                     Task.Run(async () =>
                     {
                         var content = UserDictionary(this);
                         content["Name"] = name;
                         var httpClient = new HttpClient();
-                        //FIX: How to take server URL
-                        var response = await httpClient.PostAsync(String.Format("{0}Users/Edit", "http://localhost:58040/"), new FormUrlEncodedContent(content));
+                        var response = await httpClient.PostAsync(String.Format("{0}Users/Edit", Resources.ServerURL), new FormUrlEncodedContent(content));
                         return await response.Content.ReadAsStringAsync();
                     }).Result);
             }
@@ -360,8 +347,7 @@ namespace zeAPI
                     content.Add("ChatId", chat.Id.ToString());
                     content.Add("UserId", Id.ToString());
                     var httpClient = new HttpClient();
-                    //FIX: How to take server URL
-                    var response = await httpClient.PostAsync(String.Format("{0}Messages/Create", "http://localhost:58040/"), new FormUrlEncodedContent(content));
+                    var response = await httpClient.PostAsync(String.Format("{0}Messages/Create", Resources.ServerURL), new FormUrlEncodedContent(content));
                     return await response.Content.ReadAsStringAsync();
                 }).Result);
                 Connection.hubProxy.Invoke("newMessage", chat, message);
@@ -384,8 +370,7 @@ namespace zeAPI
                         content.Add("MessageId", message.Id.ToString());
                         content.Add("UserId", Id.ToString());
                         var httpClient = new HttpClient();
-                        //FIX: How to take server URL
-                        var response = await httpClient.PostAsync(String.Format("{0}DeletedMessages/Create", "http://localhost:58040/"), new FormUrlEncodedContent(content));
+                        var response = await httpClient.PostAsync(String.Format("{0}DeletedMessages/Create", Resources.ServerURL), new FormUrlEncodedContent(content));
                         return await response.Content.ReadAsStringAsync();
                     }).Result);
             }
