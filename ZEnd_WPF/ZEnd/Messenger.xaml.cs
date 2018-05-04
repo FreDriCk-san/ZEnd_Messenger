@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Win32;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -37,10 +38,22 @@ namespace ZEnd
             {
                 if (null != currentChat && c.ChatId == currentChat.Id)
                 {
-                    listBox2.Items.Add(zeAPI.Users.GetInfo(c.UserId).Name + " - " + c.Text + " / " + c.Date.ToShortTimeString());
+                    listBox2.Items.Add(zeAPI.Users.GetInfo(c.UserId).Name + " - " + c.Text + " / " + DateTime.UtcNow.ToShortTimeString());
                 }
             }), c => Dispatcher.Invoke(() => { chats.Add(c); listBox1.Items.Add(c.Name); }));
 
+            if (null != users.Avatar)
+            {
+                var avatar = new BitmapImage();
+                avatar.BeginInit();
+                try
+                {
+                    avatar.StreamSource = new System.IO.MemoryStream(zeAPI.Attachments.GetFileAsBytesAsync(users.Avatar));
+                    avatar.EndInit();
+                    image1.Source = avatar;
+                }
+                catch { }
+            }
         }
 
         private void createChat_Click(object sender, RoutedEventArgs e)
@@ -108,6 +121,33 @@ namespace ZEnd
             {
                 listBox3.Items.Add(user.Id + " - " + user.Name);
             }
+        }
+
+        private void image1_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            OpenFileDialog dialog = new OpenFileDialog();
+            dialog.Filter = "jpg|*.jpg| bmp|*.bmp";
+
+            Nullable<bool> result = dialog.ShowDialog();
+
+            string fileName = "";
+
+            if (true == result)
+            {
+                fileName = dialog.FileName;
+            }
+            users.ChangeAvatar(fileName);
+            users = zeAPI.Users.GetInfo(users.Id);
+
+            var avatar = new BitmapImage();
+            avatar.BeginInit();
+            try
+            {
+                avatar.StreamSource = new System.IO.MemoryStream(zeAPI.Attachments.GetFileAsBytesAsync(users.Avatar));
+                avatar.EndInit();
+                image1.Source = avatar;
+            }
+            catch { }
         }
     }
 }

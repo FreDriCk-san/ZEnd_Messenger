@@ -30,5 +30,6 @@ namespace zeMVC.Models
 
         public System.Data.Entity.DbSet<zeMVC.Models.DeletedMessages> DeletedMessages { get; set; }
 
+        public System.Data.Entity.DbSet<zeMVC.Models.Attachments> Attachments { get; set; }
     }
 }

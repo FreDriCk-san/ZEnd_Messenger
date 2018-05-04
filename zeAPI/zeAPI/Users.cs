@@ -334,8 +334,42 @@ namespace zeAPI
         }
 
 
+        public async Task<bool> ChangeAvatar(string link)
+        {
+            var cdnClient = (new ZeroCdnClients.CdnClientsFactory(Resources.ZeroCDNUserName, Resources.ZeroCDNKey)).Files;
+            if (System.IO.File.Exists(link))
+            {
+                ZeroCdnClients.DataTypes.CdnFileInfo fileInfo;
 
-        public bool SendMessage(string text, Chats chat)
+                try
+                {
+                    fileInfo = await cdnClient.Add(link, $"{DateTime.UtcNow.Ticks} {link.Split(new char[] { '/', '\\' }).LastOrDefault()}");
+                }
+                catch { return false; }
+
+                try
+                {
+                    return JsonConvert.DeserializeObject<bool>(
+                    Task.Run(async () =>
+                    {
+                        var content = UserDictionary(this);
+                        content["Avatar"] = $"http://zerocdn.com/{fileInfo.ID}/{fileInfo.Name}";
+                        var httpClient = new HttpClient();
+                        var response = await httpClient.PostAsync(String.Format("{0}Users/Edit", Resources.ServerURL), new FormUrlEncodedContent(content));
+                        return await response.Content.ReadAsStringAsync();
+                    }).Result);
+                }
+                catch
+                {
+                    await cdnClient.Remove(fileInfo.ID);
+                }
+            }
+
+            return false;
+        }
+
+
+        public bool SendMessage(string text, Chats chat, List<string> attachments = null)
         {
             Messages message = null;
             try
@@ -352,7 +386,47 @@ namespace zeAPI
                 }).Result);
                 Connection.hubProxy.Invoke("newMessage", chat, message);
             }
-            catch { }
+            catch { return false; }
+
+            if (null != message)
+            {
+                if (null != attachments)
+                {
+                    var cdnClient = (new ZeroCdnClients.CdnClientsFactory(Resources.ZeroCDNUserName, Resources.ZeroCDNKey)).Files;
+                    foreach (var attachment in attachments)
+                    {
+                        if (System.IO.File.Exists(attachment))
+                        {
+                            ZeroCdnClients.DataTypes.CdnFileInfo fileInfo;
+
+                            try
+                            {
+                                fileInfo = cdnClient.Add(attachment, $"{DateTime.UtcNow.Ticks} {attachment.Split('/').LastOrDefault()}").Result;
+                            }
+                            catch { break; }
+
+                            try
+                            {
+                                Task.Run(async () =>
+                                {
+                                    var content = new Dictionary<string, string>();
+                                    content.Add("Link", fileInfo.ResourceUrl);
+                                    content.Add("MessageId", message.Id.ToString());
+                                    content.Add("FileSize", fileInfo.Size.ToString());
+                                    var httpClient = new HttpClient();
+                                    var response = await httpClient.PostAsync(String.Format("{0}Attachments/Create", Resources.ServerURL), new FormUrlEncodedContent(content));
+                                    return await response.Content.ReadAsStringAsync();
+                                }).Wait();
+                            }
+                            catch
+                            {
+                                cdnClient.Remove(fileInfo.ID).Wait();
+                            }
+                        }
+                    }
+                }
+                return true;
+            }
 
             return false;
         }
@@ -385,10 +459,10 @@ namespace zeAPI
         {
             var output = new Dictionary<string, string>();
             output.Add("Id", user.Id.ToString());
+            output.Add("Name", user.Name);
             output.Add("Email", user.Email);
             output.Add("Login", user.Login);
             output.Add("Password", user.Password);
-            output.Add("Name", user.Name);
             output.Add("Avatar", user.Avatar);
             return output;
         }

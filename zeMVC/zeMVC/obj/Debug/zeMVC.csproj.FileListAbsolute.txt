@@ -244,3 +244,5 @@ D:\Git_Re_Positories\ZEnd_Messenger\zeMVC\zeMVC\obj\Debug\zeMVC.csproj.CoreCompi
 D:\Git_Re_Positories\ZEnd_Messenger\zeMVC\zeMVC\obj\Debug\zeMVC.csproj.CopyComplete
 D:\Git_Re_Positories\ZEnd_Messenger\zeMVC\zeMVC\obj\Debug\zeMVC.dll
 D:\Git_Re_Positories\ZEnd_Messenger\zeMVC\zeMVC\obj\Debug\zeMVC.pdb
+D:\Git_Re_Positories\ZEnd_Messenger\zeMVC\zeMVC\obj\Debug\zeMVC.Migrations.InitialCreate.resources
+D:\Git_Re_Positories\ZEnd_Messenger\zeMVC\zeMVC\obj\Debug\zeMVC.csproj.GenerateResource.cache

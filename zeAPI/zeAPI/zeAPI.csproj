@@ -71,6 +71,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Attachments.cs" />
     <Compile Include="Chats.cs" />
     <Compile Include="Connection.cs" />
     <Compile Include="Enums.cs" />

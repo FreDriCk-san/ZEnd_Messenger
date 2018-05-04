@@ -68,5 +68,23 @@ namespace zeAPI {
                 return ResourceManager.GetString("ServerURL", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на killmeplease.
+        /// </summary>
+        internal static string ZeroCDNKey {
+            get {
+                return ResourceManager.GetString("ZeroCDNKey", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на FreDriCk.
+        /// </summary>
+        internal static string ZeroCDNUserName {
+            get {
+                return ResourceManager.GetString("ZeroCDNUserName", resourceCulture);
+            }
+        }
     }
 }

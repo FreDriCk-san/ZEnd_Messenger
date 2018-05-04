@@ -49,6 +49,24 @@ namespace zeAPI
             return false;
         }
 
+        public List<Attachments> GetAttachments(Messages messages)
+        {
+            var attachments = new List<Attachments>();
+            try
+            {
+                attachments.AddRange(JsonConvert.DeserializeObject<Attachments[]>(
+                    Task.Run(async () =>
+                    {
+                        var httpClient = new HttpClient();
+                        var response = await httpClient.GetAsync(String.Format("{0}Attachments/MessageAttachments?MessageId={1}", Resources.ServerURL, messages.Id));
+                        return await response.Content.ReadAsStringAsync();
+                    }).Result));
+            }
+            catch { }
+
+            return attachments;
+        }
+
     }
 
 }
