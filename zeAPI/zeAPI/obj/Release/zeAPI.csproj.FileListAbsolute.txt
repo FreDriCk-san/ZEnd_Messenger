@@ -24,3 +24,31 @@ D:\Проект по Лёхе\Coding\zeAPI\zeAPI\obj\Release\zeAPI.csproj.CoreCo
 D:\Проект по Лёхе\Coding\zeAPI\zeAPI\obj\Release\zeAPI.csproj.CopyComplete
 D:\Проект по Лёхе\Coding\zeAPI\zeAPI\obj\Release\zeAPI.exe
 D:\Проект по Лёхе\Coding\zeAPI\zeAPI\obj\Release\zeAPI.pdb
+D:\Git_Re_Positories\ZEnd_Messenger\zeAPI\zeAPI\bin\Release\zeAPI.exe.config
+D:\Git_Re_Positories\ZEnd_Messenger\zeAPI\zeAPI\bin\Release\zeAPI.exe
+D:\Git_Re_Positories\ZEnd_Messenger\zeAPI\zeAPI\bin\Release\zeAPI.pdb
+D:\Git_Re_Positories\ZEnd_Messenger\zeAPI\zeAPI\bin\Release\Mds.Integrations.ZeroCdn.dll
+D:\Git_Re_Positories\ZEnd_Messenger\zeAPI\zeAPI\bin\Release\Microsoft.AspNet.SignalR.Client.dll
+D:\Git_Re_Positories\ZEnd_Messenger\zeAPI\zeAPI\bin\Release\Microsoft.AspNet.SignalR.Core.dll
+D:\Git_Re_Positories\ZEnd_Messenger\zeAPI\zeAPI\bin\Release\Microsoft.AspNet.SignalR.SystemWeb.dll
+D:\Git_Re_Positories\ZEnd_Messenger\zeAPI\zeAPI\bin\Release\Microsoft.Owin.dll
+D:\Git_Re_Positories\ZEnd_Messenger\zeAPI\zeAPI\bin\Release\Microsoft.Owin.Host.SystemWeb.dll
+D:\Git_Re_Positories\ZEnd_Messenger\zeAPI\zeAPI\bin\Release\Microsoft.Owin.Security.dll
+D:\Git_Re_Positories\ZEnd_Messenger\zeAPI\zeAPI\bin\Release\Newtonsoft.Json.dll
+D:\Git_Re_Positories\ZEnd_Messenger\zeAPI\zeAPI\bin\Release\Owin.dll
+D:\Git_Re_Positories\ZEnd_Messenger\zeAPI\zeAPI\bin\Release\Mds.Integrations.ZeroCdn.pdb
+D:\Git_Re_Positories\ZEnd_Messenger\zeAPI\zeAPI\bin\Release\Mds.Integrations.ZeroCdn.xml
+D:\Git_Re_Positories\ZEnd_Messenger\zeAPI\zeAPI\bin\Release\Microsoft.AspNet.SignalR.Client.xml
+D:\Git_Re_Positories\ZEnd_Messenger\zeAPI\zeAPI\bin\Release\Microsoft.AspNet.SignalR.Core.xml
+D:\Git_Re_Positories\ZEnd_Messenger\zeAPI\zeAPI\bin\Release\Microsoft.AspNet.SignalR.SystemWeb.xml
+D:\Git_Re_Positories\ZEnd_Messenger\zeAPI\zeAPI\bin\Release\Microsoft.Owin.xml
+D:\Git_Re_Positories\ZEnd_Messenger\zeAPI\zeAPI\bin\Release\Microsoft.Owin.Host.SystemWeb.xml
+D:\Git_Re_Positories\ZEnd_Messenger\zeAPI\zeAPI\bin\Release\Microsoft.Owin.Security.xml
+D:\Git_Re_Positories\ZEnd_Messenger\zeAPI\zeAPI\bin\Release\Newtonsoft.Json.xml
+D:\Git_Re_Positories\ZEnd_Messenger\zeAPI\zeAPI\obj\Release\zeAPI.csprojResolveAssemblyReference.cache
+D:\Git_Re_Positories\ZEnd_Messenger\zeAPI\zeAPI\obj\Release\zeAPI.Resources.resources
+D:\Git_Re_Positories\ZEnd_Messenger\zeAPI\zeAPI\obj\Release\zeAPI.csproj.GenerateResource.cache
+D:\Git_Re_Positories\ZEnd_Messenger\zeAPI\zeAPI\obj\Release\zeAPI.csproj.CoreCompileInputs.cache
+D:\Git_Re_Positories\ZEnd_Messenger\zeAPI\zeAPI\obj\Release\zeAPI.csproj.CopyComplete
+D:\Git_Re_Positories\ZEnd_Messenger\zeAPI\zeAPI\obj\Release\zeAPI.exe
+D:\Git_Re_Positories\ZEnd_Messenger\zeAPI\zeAPI\obj\Release\zeAPI.pdb

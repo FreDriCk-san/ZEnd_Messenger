@@ -70,7 +70,7 @@ namespace zeAPI {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на killmeplease.
+        ///   Ищет локализованную строку, похожую на ZEnd_Messenger.
         /// </summary>
         internal static string ZeroCDNKey {
             get {

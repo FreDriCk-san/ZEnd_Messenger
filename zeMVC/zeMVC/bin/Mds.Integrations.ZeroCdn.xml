@@ -1,0 +1,564 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Mds.Integrations.ZeroCdn</name>
+    </assembly>
+    <members>
+        <member name="T:Mds.Integrations.ZeroCdn.CdnClient">
+            <summary>
+            Base client for work with Cdn REST Api.
+            </summary>
+        </member>
+        <member name="P:Mds.Integrations.ZeroCdn.CdnClient.Host">
+            <summary>
+            Main host of Cdn.
+            </summary>
+        </member>
+        <member name="M:Mds.Integrations.ZeroCdn.CdnClient.#ctor(System.String,System.String,System.Nullable{Mds.Integrations.ZeroCdn.DataTypes.CdnLoadZone})">
+            <summary>
+            Constructor for init client.
+            </summary>
+            <param name="username">User name from manager panel.</param>
+            <param name="apiKey">Api key from manager panel.</param>
+            <param name="zone">Setup work zone.</param>
+        </member>
+        <member name="M:Mds.Integrations.ZeroCdn.CdnClient.BuildUrlToFile(System.Int64)">
+            <summary>
+            Build url to file.
+            </summary>
+            <param name="fileID">File's identifier.</param>
+            <returns>Builded url.</returns>
+        </member>
+        <member name="M:Mds.Integrations.ZeroCdn.CdnClient.BuildUrlToFiles(System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{System.String,System.Object}})">
+            <summary>
+            Build url to files Api.
+            </summary>
+            <returns>Builded url.</returns>
+        </member>
+        <member name="M:Mds.Integrations.ZeroCdn.CdnClient.BuildUrlToFolder(System.Int64)">
+            <summary>
+            Build url to folder.
+            </summary>
+            <param name="folderID">Folders's identifier.</param>
+            <returns>Builded url.</returns>
+        </member>
+        <member name="M:Mds.Integrations.ZeroCdn.CdnClient.BuildUrlToFolders(System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{System.String,System.Object}})">
+            <summary>
+            Build url to folders Api.
+            </summary>
+            <returns>Builded url.</returns>
+        </member>
+        <member name="M:Mds.Integrations.ZeroCdn.CdnClient.ReadResponse(System.Net.Http.HttpResponseMessage)">
+            <summary>
+            Get from response message string value.
+            </summary>
+            <param name="response">Request's response.</param>
+            <returns>String message.</returns>
+        </member>
+        <member name="M:Mds.Integrations.ZeroCdn.CdnClient.Remove(System.String)">
+            <summary>
+            Send delete request by url.
+            </summary>
+            <param name="url">Url for remove.</param>
+            <returns>Success of operation.</returns>
+        </member>
+        <member name="M:Mds.Integrations.ZeroCdn.CdnClient.GetOne``1(System.String)">
+            <summary>
+            Send request for get info about one entity.
+            </summary>
+            <typeparam name="TCdnEntry">Type of entity.</typeparam>
+            <param name="url">Url for request.</param>
+            <returns>Full entries' info.</returns>
+        </member>
+        <member name="M:Mds.Integrations.ZeroCdn.CdnClient.GetAll``1(System.String)">
+            <summary>
+            Send request for get range on entries.
+            </summary>
+            <typeparam name="TCdnEntry">Type on Cdn entry.</typeparam>
+            <param name="url">Url for request.</param>
+            <returns>Range of entries.</returns>
+        </member>
+        <member name="T:Mds.Integrations.ZeroCdn.CdnClientsFactory">
+            <summary>
+            Factory for create need client.
+            </summary>
+        </member>
+        <member name="P:Mds.Integrations.ZeroCdn.CdnClientsFactory.Files">
+            <summary>
+            Get client for files.
+            </summary>
+        </member>
+        <member name="P:Mds.Integrations.ZeroCdn.CdnClientsFactory.Folders">
+            <summary>
+            Get client for folders.
+            </summary>
+        </member>
+        <member name="M:Mds.Integrations.ZeroCdn.CdnClientsFactory.#ctor(System.String,System.String,System.Nullable{Mds.Integrations.ZeroCdn.DataTypes.CdnLoadZone})">
+            <summary>
+            Constructor for init factory.
+            </summary>
+            <param name="username">User name from manager panel.</param>
+            <param name="apiKey">Api key from manager panel.</param>
+            <param name="zone">Setup work zone.</param>
+        </member>
+        <member name="M:Mds.Integrations.ZeroCdn.CdnClientsFactory.Images(Mds.Integrations.ZeroCdn.Images.IImagesUploaderOptions)">
+            <summary>
+            Build client for upload images.
+            </summary>
+            <param name="options">Options for uploader.</param>
+            <returns>The image's uploader.</returns>
+        </member>
+        <member name="T:Mds.Integrations.ZeroCdn.CdnFilesClient">
+            <summary>
+            Class for work with files.
+            </summary>
+        </member>
+        <member name="M:Mds.Integrations.ZeroCdn.CdnFilesClient.#ctor(System.String,System.String,System.Nullable{Mds.Integrations.ZeroCdn.DataTypes.CdnLoadZone})">
+            <summary>
+            Constructor for init client.
+            </summary>
+            <param name="username">User name from manager panel.</param>
+            <param name="apiKey">Api key from manager panel.</param>
+            <param name="zone">Setup work zone.</param>
+        </member>
+        <member name="M:Mds.Integrations.ZeroCdn.CdnFilesClient.All(Mds.Integrations.ZeroCdn.Filters.SearchFilesFilter)">
+            <summary>
+            Get list of all files in storage.
+            </summary>
+            <returns>List of files.</returns>
+        </member>
+        <member name="M:Mds.Integrations.ZeroCdn.CdnFilesClient.Info(System.Int64)">
+            <summary>
+            Get file info in storage.
+            </summary>
+            <param name="fileID">File's identifier.</param>
+            <returns>Full file's info.</returns>
+        </member>
+        <member name="M:Mds.Integrations.ZeroCdn.CdnFilesClient.Add(System.Byte[],System.String,Mds.Integrations.ZeroCdn.DataTypes.CdnFolderInfo)">
+            <summary>
+            Upload file like array of bytes.
+            </summary>
+            <param name="data">File's data.</param>
+            <param name="filename">Name of file.</param>
+            <param name="folder">Folder settings.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Mds.Integrations.ZeroCdn.CdnFilesClient.Add(System.Byte[],System.String,System.Nullable{System.Int64})">
+            <summary>
+            Upload file like array of bytes.
+            </summary>
+            <param name="data">File's data.</param>
+            <param name="filename">Name of file.</param>
+            <param name="folderID">Folder's identifier.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Mds.Integrations.ZeroCdn.CdnFilesClient.Add(System.String,System.String,Mds.Integrations.ZeroCdn.DataTypes.CdnFolderInfo)">
+            <summary>
+            Upload file from disk.
+            </summary>
+            <param name="path">File's path.</param>
+            <param name="filename">Name of file.</param>
+            <param name="folder">Folder settings.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Mds.Integrations.ZeroCdn.CdnFilesClient.Add(System.String,System.String,System.Nullable{System.Int64})">
+            <summary>
+            Upload file from disk.
+            </summary>
+            <param name="path">File's path.</param>
+            <param name="filename">Name of file.</param>
+            <param name="folderID">Folder's identifier.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Mds.Integrations.ZeroCdn.CdnFilesClient.Add(System.IO.Stream,System.String,Mds.Integrations.ZeroCdn.DataTypes.CdnFolderInfo)">
+            <summary>
+            Upload file from disk.
+            </summary>
+            <param name="stream">Data stream.</param>
+            <param name="filename">Name of file.</param>
+            <param name="folder">Folder settings.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Mds.Integrations.ZeroCdn.CdnFilesClient.Add(System.IO.Stream,System.String,System.Nullable{System.Int64})">
+            <summary>
+            Upload file from disk.
+            </summary>
+            <param name="stream">Data stream.</param>
+            <param name="filename">Name of file.</param>
+            <param name="folderID">Folder's identifier.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Mds.Integrations.ZeroCdn.CdnFilesClient.Remove(Mds.Integrations.ZeroCdn.DataTypes.CdnFileInfo)">
+            <summary>
+            Remove file from Cdn.
+            </summary>
+            <param name="file">File's info.</param>
+            <returns>Success of operation.</returns>
+        </member>
+        <member name="M:Mds.Integrations.ZeroCdn.CdnFilesClient.Remove(System.Int64)">
+            <summary>
+            Remove file from Cdn.
+            </summary>
+            <param name="fileID">File's identifier.</param>
+            <returns>Success of operation.</returns>
+        </member>
+        <member name="T:Mds.Integrations.ZeroCdn.CdnFoldersClient">
+            <summary>
+            Class for work with folders.
+            </summary>
+        </member>
+        <member name="M:Mds.Integrations.ZeroCdn.CdnFoldersClient.#ctor(System.String,System.String,System.Nullable{Mds.Integrations.ZeroCdn.DataTypes.CdnLoadZone})">
+            <summary>
+            Constructor for work with folders.
+            </summary>
+            <param name="username">User name from manager panel.</param>
+            <param name="apiKey">Api key from manager panel.</param>
+            <param name="zone">Setup work zone.</param>
+        </member>
+        <member name="M:Mds.Integrations.ZeroCdn.CdnFoldersClient.All(Mds.Integrations.ZeroCdn.Filters.SearchFoldersFilter)">
+            <summary>
+            Get list of all folders in storage.
+            </summary>
+            <returns>Range of folders.</returns>
+        </member>
+        <member name="M:Mds.Integrations.ZeroCdn.CdnFoldersClient.Info(System.Int64)">
+            <summary>
+            Get folder info in storage.
+            </summary>
+            <param name="folderID">Folder's identifier.</param>
+            <returns>Full folder's info.</returns>
+        </member>
+        <member name="M:Mds.Integrations.ZeroCdn.CdnFoldersClient.Add(System.String,Mds.Integrations.ZeroCdn.DataTypes.CdnFolderInfo)">
+            <summary>
+            Create folder on Cdn.
+            </summary>
+            <param name="folderName">Name of folder.</param>
+            <param name="folder">Parent folder if need.</param>
+            <returns>Full folder's info.</returns>
+        </member>
+        <member name="M:Mds.Integrations.ZeroCdn.CdnFoldersClient.Remove(Mds.Integrations.ZeroCdn.DataTypes.CdnFolderInfo)">
+            <summary>
+            Remove folder from Cdn.
+            </summary>
+            <param name="folder">Folder's info.</param>
+            <returns>Success of operation.</returns>
+        </member>
+        <member name="M:Mds.Integrations.ZeroCdn.CdnFoldersClient.Remove(System.Int64)">
+            <summary>
+            Remove folder from Cdn.
+            </summary>
+            <param name="folderID">Folder's identifier.</param>
+            <returns>Success of operation.</returns>
+        </member>
+        <member name="T:Mds.Integrations.ZeroCdn.Images.CdnImagesUploader">
+            <summary>
+            Class for updload and resize image to Cdn.
+            </summary>
+        </member>
+        <member name="P:Mds.Integrations.ZeroCdn.Images.CdnImagesUploader.Options">
+            <summary>
+            Options for upload folder.
+            </summary>
+        </member>
+        <member name="M:Mds.Integrations.ZeroCdn.Images.CdnImagesUploader.#ctor(System.String,Mds.Integrations.ZeroCdn.CdnFilesClient,Mds.Integrations.ZeroCdn.CdnFoldersClient,Mds.Integrations.ZeroCdn.Images.IImagesUploaderOptions)">
+            <summary>
+            Contructor for init.
+            </summary>
+            <param name="username">Username for access to cdn.</param>
+            <param name="files">File's client.</param>
+            <param name="folders">Folder's client.</param>
+            <param name="options">Options for uploader.</param>
+        </member>
+        <member name="M:Mds.Integrations.ZeroCdn.Images.CdnImagesUploader.Upload(System.String,System.String)">
+            <summary>
+            Upload image by dataUrl.
+            </summary>
+            <param name="dataUrl">Sources of image in base64.</param>
+            <param name="folderName">Folder's name for upload image.</param>
+            <returns>Range of images.</returns>
+        </member>
+        <member name="M:Mds.Integrations.ZeroCdn.Images.CdnImagesUploader.Upload(System.Byte[],System.String)">
+            <summary>
+            Upload image like range of bytes.
+            </summary>
+            <param name="bytes">Image like bytes.</param>
+            <param name="folderName">Folder's name for upload image.</param>
+            <returns>Range of images.</returns>
+        </member>
+        <member name="M:Mds.Integrations.ZeroCdn.Images.CdnImagesUploader.Remove(System.Int64)">
+            <summary>
+            Remove image from Cdn.
+            </summary>
+            <param name="imageId">Image's identifier.</param>
+            <returns>Success of operation.</returns>
+        </member>
+        <member name="M:Mds.Integrations.ZeroCdn.Images.CdnImagesUploader.Remove(System.Int64[])">
+            <summary>
+            Remove range of images from Cdn.
+            </summary>
+            <param name="images">Range of image's id.</param>
+            <returns>Success of operation.</returns>
+        </member>
+        <member name="T:Mds.Integrations.ZeroCdn.Images.CdnImage">
+            <summary>
+            Upload image info.
+            </summary>
+        </member>
+        <member name="P:Mds.Integrations.ZeroCdn.Images.CdnImage.ID">
+            <summary>
+            ID of file.
+            </summary>
+        </member>
+        <member name="P:Mds.Integrations.ZeroCdn.Images.CdnImage.Width">
+            <summary>
+            Width of image.
+            </summary>
+        </member>
+        <member name="P:Mds.Integrations.ZeroCdn.Images.CdnImage.Link">
+            <summary>
+            Link for access to file.
+            </summary>
+        </member>
+        <member name="P:Mds.Integrations.ZeroCdn.Images.CdnImage.IsOriginal">
+            <summary>
+            Is original image.
+            </summary>
+        </member>
+        <member name="T:Mds.Integrations.ZeroCdn.Images.IImagesUploaderOptions">
+            <summary>
+            Interface for images uploader options.
+            </summary>
+        </member>
+        <member name="P:Mds.Integrations.ZeroCdn.Images.IImagesUploaderOptions.BaseFolder">
+            <summary>
+            Base folder for upload image.
+            </summary>
+        </member>
+        <member name="P:Mds.Integrations.ZeroCdn.Images.IImagesUploaderOptions.Sizes">
+            <summary>
+            Range of sizes and suffixes for copy images.
+            </summary>
+        </member>
+        <member name="T:Mds.Integrations.ZeroCdn.DataTypes.CdnEntry">
+            <summary>
+            Base class for ZeroCdn entries.
+            </summary>
+        </member>
+        <member name="P:Mds.Integrations.ZeroCdn.DataTypes.CdnEntry.ID">
+            <summary>
+            ID of file.
+            </summary>
+        </member>
+        <member name="P:Mds.Integrations.ZeroCdn.DataTypes.CdnEntry.ResourceUrl">
+            <summary>
+            Url to resource.
+            </summary>
+        </member>
+        <member name="P:Mds.Integrations.ZeroCdn.DataTypes.CdnEntry.Name">
+            <summary>
+            Name of file.
+            </summary>
+        </member>
+        <member name="P:Mds.Integrations.ZeroCdn.DataTypes.CdnEntry.FolderUrl">
+            <summary>
+            Url for access to folder.
+            </summary>
+        </member>
+        <member name="P:Mds.Integrations.ZeroCdn.DataTypes.CdnEntry.FolderID">
+            <summary>
+            ID of folder.
+            </summary>
+        </member>
+        <member name="P:Mds.Integrations.ZeroCdn.DataTypes.CdnEntry.Created">
+            <summary>
+            Date of file creation.
+            </summary>
+        </member>
+        <member name="M:Mds.Integrations.ZeroCdn.DataTypes.CdnEntry.#ctor">
+            <summary>
+            Base constructor.
+            </summary>
+        </member>
+        <member name="T:Mds.Integrations.ZeroCdn.DataTypes.CdnFileInfo">
+            <summary>
+            File's info.
+            </summary>
+        </member>
+        <member name="P:Mds.Integrations.ZeroCdn.DataTypes.CdnFileInfo.Size">
+            <summary>
+            Size of file in bytes.
+            </summary>
+        </member>
+        <member name="P:Mds.Integrations.ZeroCdn.DataTypes.CdnFileInfo.SHA1">
+            <summary>
+            Sha1 hash of file.
+            </summary>
+        </member>
+        <member name="P:Mds.Integrations.ZeroCdn.DataTypes.CdnFileInfo.ContentType">
+            <summary>
+            Type of content.
+            </summary>
+        </member>
+        <member name="P:Mds.Integrations.ZeroCdn.DataTypes.CdnFileInfo.IsHidden">
+            <summary>
+            File is hidden?
+            </summary>
+        </member>
+        <member name="P:Mds.Integrations.ZeroCdn.DataTypes.CdnFileInfo.Autodownload">
+            <summary>
+            Auto-donload file?
+            </summary>
+        </member>
+        <member name="P:Mds.Integrations.ZeroCdn.DataTypes.CdnFileInfo.IsViewable">
+            <summary>
+            Can view file?
+            </summary>
+        </member>
+        <member name="M:Mds.Integrations.ZeroCdn.DataTypes.CdnFileInfo.#ctor">
+            <summary>
+            Base open constructor.
+            </summary>
+        </member>
+        <member name="T:Mds.Integrations.ZeroCdn.DataTypes.CdnFolderInfo">
+            <summary>
+            Class which contain info abput folder.
+            </summary>
+        </member>
+        <member name="M:Mds.Integrations.ZeroCdn.DataTypes.CdnFolderInfo.#ctor">
+            <summary>
+            Base constructor.
+            </summary>
+        </member>
+        <member name="M:Mds.Integrations.ZeroCdn.DataTypes.CdnFolderInfo.#ctor(System.Int64)">
+            <summary>
+            Constructor for init FolderID.
+            </summary>
+            <param name="folderId">Folder's identifier.</param>
+        </member>
+        <member name="M:Mds.Integrations.ZeroCdn.DataTypes.CdnFolderInfo.#ctor(System.Int64,System.String)">
+            <summary>
+            Contructor for init folder for 
+            </summary>
+            <param name="folderId">Folder's identifier.</param>
+            <param name="name">name of folder.</param>
+        </member>
+        <member name="T:Mds.Integrations.ZeroCdn.DataTypes.CdnLoadZone">
+            <summary>
+            Enum of zones for manage files.
+            </summary>
+        </member>
+        <member name="F:Mds.Integrations.ZeroCdn.DataTypes.CdnLoadZone.Moscow">
+            <summary>
+            Russia Moscow.
+            </summary>
+        </member>
+        <member name="F:Mds.Integrations.ZeroCdn.DataTypes.CdnLoadZone.Minsk">
+            <summary>
+            Belarus Minsk.
+            </summary>
+        </member>
+        <member name="F:Mds.Integrations.ZeroCdn.DataTypes.CdnLoadZone.Krasnoyarsk">
+            <summary>
+            Russia Krasnoyarsk.
+            </summary>
+        </member>
+        <member name="T:Mds.Integrations.ZeroCdn.Filters.SearchFoldersFilter">
+            <summary>
+            Filters fields for search file in storage.
+            </summary>
+        </member>
+        <member name="M:Mds.Integrations.ZeroCdn.Filters.SearchFoldersFilter.#ctor">
+            <summary>
+            Base constructor.
+            </summary>
+        </member>
+        <member name="T:Mds.Integrations.ZeroCdn.Filters.SearchFilesFilter">
+            <summary>
+            Filters for search file in storage.
+            </summary>
+        </member>
+        <member name="P:Mds.Integrations.ZeroCdn.Filters.SearchFilesFilter.NameEndsWith">
+            <summary>
+            Search by end of filename.
+            </summary>
+        </member>
+        <member name="P:Mds.Integrations.ZeroCdn.Filters.SearchFilesFilter.SizeGreatThen">
+            <summary>
+            Filter by great size in bytes.
+            </summary>
+        </member>
+        <member name="P:Mds.Integrations.ZeroCdn.Filters.SearchFilesFilter.SizeLittleThen">
+            <summary>
+            Filter by great size in bytes.
+            </summary>
+        </member>
+        <member name="P:Mds.Integrations.ZeroCdn.Filters.SearchFilesFilter.OrderBy">
+            <summary>
+            Select ordering.
+            </summary>
+        </member>
+        <member name="P:Mds.Integrations.ZeroCdn.Filters.SearchFilesFilter.OrderReverse">
+            <summary>
+            Reverse sort.
+            </summary>
+        </member>
+        <member name="M:Mds.Integrations.ZeroCdn.Filters.SearchFilesFilter.#ctor">
+            <summary>
+            Base constructor.
+            </summary>
+        </member>
+        <member name="T:Mds.Integrations.ZeroCdn.Filters.CdnOrderField">
+            <summary>
+            Field for order by.
+            </summary>
+        </member>
+        <member name="F:Mds.Integrations.ZeroCdn.Filters.CdnOrderField.Name">
+            <summary>
+            Order by name.
+            </summary>
+        </member>
+        <member name="F:Mds.Integrations.ZeroCdn.Filters.CdnOrderField.Size">
+            <summary>
+            Order by size.
+            </summary>
+        </member>
+        <member name="T:Mds.Integrations.ZeroCdn.Filters.SearchFilter">
+            <summary>
+            Base filters for search.
+            </summary>
+        </member>
+        <member name="P:Mds.Integrations.ZeroCdn.Filters.SearchFilter.Take">
+            <summary>
+            Count of elements for gettings.
+            </summary>
+        </member>
+        <member name="P:Mds.Integrations.ZeroCdn.Filters.SearchFilter.Skip">
+            <summary>
+            Skip elements.
+            </summary>
+        </member>
+        <member name="P:Mds.Integrations.ZeroCdn.Filters.SearchFilter.FolderID">
+            <summary>
+            Search by folder ID.
+            </summary>
+        </member>
+        <member name="P:Mds.Integrations.ZeroCdn.Filters.SearchFilter.NameStartsWith">
+            <summary>
+            Search by start of filename.
+            </summary>
+        </member>
+        <member name="M:Mds.Integrations.ZeroCdn.Filters.SearchFilter.#ctor">
+            <summary>
+            Base constructor.
+            </summary>
+        </member>
+        <member name="M:Mds.Integrations.ZeroCdn.Filters.SearchFilter.CheckAndAdd(System.String,System.Object,System.Collections.Generic.IDictionary{System.String,System.Object})">
+            <summary>
+            Check value and add key.
+            </summary>
+            <param name="key">Key for adding.</param>
+            <param name="value">Value for adding.</param>
+            <param name="parameters">Storage of key-values.</param>
+        </member>
+    </members>
+</doc>

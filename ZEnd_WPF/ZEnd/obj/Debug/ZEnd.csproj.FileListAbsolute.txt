@@ -72,7 +72,6 @@ D:\Git_Re_Positories\ZEnd_Messenger\ZEnd_WPF\ZEnd\bin\Debug\Microsoft.Owin.Secur
 D:\Git_Re_Positories\ZEnd_Messenger\ZEnd_WPF\ZEnd\bin\Debug\Newtonsoft.Json.dll
 D:\Git_Re_Positories\ZEnd_Messenger\ZEnd_WPF\ZEnd\bin\Debug\Owin.dll
 D:\Git_Re_Positories\ZEnd_Messenger\ZEnd_WPF\ZEnd\bin\Debug\zeAPI.exe
-D:\Git_Re_Positories\ZEnd_Messenger\ZEnd_WPF\ZEnd\bin\Debug\ZeroCdnClients.dll
 D:\Git_Re_Positories\ZEnd_Messenger\ZEnd_WPF\ZEnd\bin\Debug\Microsoft.AspNet.SignalR.Client.dll
 D:\Git_Re_Positories\ZEnd_Messenger\ZEnd_WPF\ZEnd\bin\Debug\zeAPI.pdb
 D:\Git_Re_Positories\ZEnd_Messenger\ZEnd_WPF\ZEnd\bin\Debug\zeAPI.exe.config
@@ -84,8 +83,6 @@ D:\Git_Re_Positories\ZEnd_Messenger\ZEnd_WPF\ZEnd\bin\Debug\Microsoft.Owin.xml
 D:\Git_Re_Positories\ZEnd_Messenger\ZEnd_WPF\ZEnd\bin\Debug\Microsoft.Owin.Host.SystemWeb.xml
 D:\Git_Re_Positories\ZEnd_Messenger\ZEnd_WPF\ZEnd\bin\Debug\Microsoft.Owin.Security.xml
 D:\Git_Re_Positories\ZEnd_Messenger\ZEnd_WPF\ZEnd\bin\Debug\Newtonsoft.Json.xml
-D:\Git_Re_Positories\ZEnd_Messenger\ZEnd_WPF\ZEnd\bin\Debug\ZeroCdnClients.pdb
-D:\Git_Re_Positories\ZEnd_Messenger\ZEnd_WPF\ZEnd\bin\Debug\ZeroCdnClients.xml
 D:\Git_Re_Positories\ZEnd_Messenger\ZEnd_WPF\ZEnd\bin\Debug\Microsoft.AspNet.SignalR.Client.xml
 D:\Git_Re_Positories\ZEnd_Messenger\ZEnd_WPF\ZEnd\obj\Debug\ZEnd.csprojResolveAssemblyReference.cache
 D:\Git_Re_Positories\ZEnd_Messenger\ZEnd_WPF\ZEnd\obj\Debug\MainWindow.g.cs
@@ -105,3 +102,8 @@ D:\Git_Re_Positories\ZEnd_Messenger\ZEnd_WPF\ZEnd\obj\Debug\ZEnd.csproj.CoreComp
 D:\Git_Re_Positories\ZEnd_Messenger\ZEnd_WPF\ZEnd\obj\Debug\ZEnd.csproj.CopyComplete
 D:\Git_Re_Positories\ZEnd_Messenger\ZEnd_WPF\ZEnd\obj\Debug\ZEnd.exe
 D:\Git_Re_Positories\ZEnd_Messenger\ZEnd_WPF\ZEnd\obj\Debug\ZEnd.pdb
+D:\Git_Re_Positories\ZEnd_Messenger\ZEnd_WPF\ZEnd\bin\Debug\Mds.Integrations.ZeroCdn.dll
+D:\Git_Re_Positories\ZEnd_Messenger\ZEnd_WPF\ZEnd\bin\Debug\Mds.Integrations.ZeroCdn.pdb
+D:\Git_Re_Positories\ZEnd_Messenger\ZEnd_WPF\ZEnd\bin\Debug\Mds.Integrations.ZeroCdn.xml
+D:\Git_Re_Positories\ZEnd_Messenger\ZEnd_WPF\ZEnd\bin\Debug\ru\EntityFramework.resources.dll
+D:\Git_Re_Positories\ZEnd_Messenger\ZEnd_WPF\ZEnd\bin\Debug\ru\EntityFramework.SqlServer.resources.dll

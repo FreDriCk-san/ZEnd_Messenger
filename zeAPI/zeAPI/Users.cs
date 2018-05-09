@@ -336,10 +336,11 @@ namespace zeAPI
 
         public async Task<bool> ChangeAvatar(string link)
         {
-            var cdnClient = (new ZeroCdnClients.CdnClientsFactory(Resources.ZeroCDNUserName, Resources.ZeroCDNKey)).Files;
+            
+            var cdnClient = (new Mds.Integrations.ZeroCdn.CdnClientsFactory(Resources.ZeroCDNUserName, Resources.ZeroCDNKey)).Files;
             if (System.IO.File.Exists(link))
             {
-                ZeroCdnClients.DataTypes.CdnFileInfo fileInfo;
+                Mds.Integrations.ZeroCdn.DataTypes.CdnFileInfo fileInfo;
 
                 try
                 {
@@ -392,12 +393,12 @@ namespace zeAPI
             {
                 if (null != attachments)
                 {
-                    var cdnClient = (new ZeroCdnClients.CdnClientsFactory(Resources.ZeroCDNUserName, Resources.ZeroCDNKey)).Files;
+                    var cdnClient = (new Mds.Integrations.ZeroCdn.CdnClientsFactory(Resources.ZeroCDNUserName, Resources.ZeroCDNKey)).Files;
                     foreach (var attachment in attachments)
                     {
                         if (System.IO.File.Exists(attachment))
                         {
-                            ZeroCdnClients.DataTypes.CdnFileInfo fileInfo;
+                            Mds.Integrations.ZeroCdn.DataTypes.CdnFileInfo fileInfo;
 
                             try
                             {

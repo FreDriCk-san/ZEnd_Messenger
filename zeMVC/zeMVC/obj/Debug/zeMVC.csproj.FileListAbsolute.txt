@@ -224,9 +224,7 @@ D:\Git_Re_Positories\ZEnd_Messenger\zeMVC\zeMVC\bin\Antlr3.Runtime.pdb
 D:\Git_Re_Positories\ZEnd_Messenger\zeMVC\zeMVC\bin\System.Net.Http.Formatting.xml
 D:\Git_Re_Positories\ZEnd_Messenger\zeMVC\zeMVC\bin\System.Web.Http.xml
 D:\Git_Re_Positories\ZEnd_Messenger\zeMVC\zeMVC\bin\System.Web.Http.WebHost.xml
-D:\Git_Re_Positories\ZEnd_Messenger\zeMVC\zeMVC\bin\Microsoft.ApplicationInsights.xml
 D:\Git_Re_Positories\ZEnd_Messenger\zeMVC\zeMVC\bin\Microsoft.AI.DependencyCollector.xml
-D:\Git_Re_Positories\ZEnd_Messenger\zeMVC\zeMVC\bin\Microsoft.AI.ServerTelemetryChannel.xml
 D:\Git_Re_Positories\ZEnd_Messenger\zeMVC\zeMVC\bin\Microsoft.AI.WindowsServer.xml
 D:\Git_Re_Positories\ZEnd_Messenger\zeMVC\zeMVC\bin\Microsoft.AI.Web.xml
 D:\Git_Re_Positories\ZEnd_Messenger\zeMVC\zeMVC\bin\ru\System.Web.Helpers.resources.dll
@@ -246,3 +244,16 @@ D:\Git_Re_Positories\ZEnd_Messenger\zeMVC\zeMVC\obj\Debug\zeMVC.dll
 D:\Git_Re_Positories\ZEnd_Messenger\zeMVC\zeMVC\obj\Debug\zeMVC.pdb
 D:\Git_Re_Positories\ZEnd_Messenger\zeMVC\zeMVC\obj\Debug\zeMVC.Migrations.InitialCreate.resources
 D:\Git_Re_Positories\ZEnd_Messenger\zeMVC\zeMVC\obj\Debug\zeMVC.csproj.GenerateResource.cache
+D:\Git_Re_Positories\ZEnd_Messenger\zeMVC\zeMVC\bin\roslyn\Microsoft.Managed.Core.targets
+D:\Git_Re_Positories\ZEnd_Messenger\zeMVC\zeMVC\bin\roslyn\System.IO.Pipes.AccessControl.dll
+D:\Git_Re_Positories\ZEnd_Messenger\zeMVC\zeMVC\bin\Mds.Integrations.ZeroCdn.dll
+D:\Git_Re_Positories\ZEnd_Messenger\zeMVC\zeMVC\bin\Microsoft.AspNet.TelemetryCorrelation.dll
+D:\Git_Re_Positories\ZEnd_Messenger\zeMVC\zeMVC\bin\System.Diagnostics.DiagnosticSource.dll
+D:\Git_Re_Positories\ZEnd_Messenger\zeMVC\zeMVC\bin\Mds.Integrations.ZeroCdn.pdb
+D:\Git_Re_Positories\ZEnd_Messenger\zeMVC\zeMVC\bin\Mds.Integrations.ZeroCdn.xml
+D:\Git_Re_Positories\ZEnd_Messenger\zeMVC\zeMVC\bin\Microsoft.AspNet.TelemetryCorrelation.xml
+D:\Git_Re_Positories\ZEnd_Messenger\zeMVC\zeMVC\bin\System.Diagnostics.DiagnosticSource.xml
+D:\Git_Re_Positories\ZEnd_Messenger\zeMVC\zeMVC\bin\ru\EntityFramework.resources.dll
+D:\Git_Re_Positories\ZEnd_Messenger\zeMVC\zeMVC\bin\ru\EntityFramework.SqlServer.resources.dll
+D:\Git_Re_Positories\ZEnd_Messenger\zeMVC\zeMVC\bin\Microsoft.AspNet.SignalR.Client.dll
+D:\Git_Re_Positories\ZEnd_Messenger\zeMVC\zeMVC\bin\Microsoft.AspNet.SignalR.Client.xml
